@@ -95,12 +95,10 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JAVA,JAVA8,Lambda," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="卡卢比-Blog" type="application/atom+xml" />
@@ -115,14 +113,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="卡卢比-Blog">
-<meta property="og:url" content="http://blog.lyq3.com/404.html">
+<meta name="description" content="函数式接口Lambda不是所有方法都能使用的，得满足一定的条件，比如得满足函数式接口。  对于只有一个抽象方法的接口，需要这种借口的对象时，就可以提供一个Lambda表达式，这种接口称为函数式接口，也就是只有一个抽象方法的接口（不包括继承的）">
+<meta name="keywords" content="JAVA,JAVA8,Lambda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8新特性之Lambda表达式总结">
+<meta property="og:url" content="http://blog.lyq3.com/2017/10/31/JavaCore/Java8_lambda/index.html">
 <meta property="og:site_name" content="卡卢比-Blog">
+<meta property="og:description" content="函数式接口Lambda不是所有方法都能使用的，得满足一定的条件，比如得满足函数式接口。  对于只有一个抽象方法的接口，需要这种借口的对象时，就可以提供一个Lambda表达式，这种接口称为函数式接口，也就是只有一个抽象方法的接口（不包括继承的）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T10:44:26.095Z">
+<meta property="og:image" content="http://blog.lyq3.com/images/java_core/lmbda.jpg">
+<meta property="og:updated_time" content="2018-04-30T10:44:26.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卡卢比-Blog">
+<meta name="twitter:title" content="Java8新特性之Lambda表达式总结">
+<meta name="twitter:description" content="函数式接口Lambda不是所有方法都能使用的，得满足一定的条件，比如得满足函数式接口。  对于只有一个抽象方法的接口，需要这种借口的对象时，就可以提供一个Lambda表达式，这种接口称为函数式接口，也就是只有一个抽象方法的接口（不包括继承的）">
+<meta name="twitter:image" content="http://blog.lyq3.com/images/java_core/lmbda.jpg">
 
 
 
@@ -151,13 +155,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.lyq3.com/404.html"/>
+  <link rel="canonical" href="http://blog.lyq3.com/2017/10/31/JavaCore/Java8_lambda/"/>
 
 
 
 
 
-  <title> | 卡卢比-Blog</title>
+  <title>Java8新特性之Lambda表达式总结 | 卡卢比-Blog</title>
   
 
 
@@ -316,49 +320,338 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/10/31/JavaCore/Java8_lambda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡卢比">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卢比-Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="robots" content="all">
-  <meta name="robots" content="index,follow">
-  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
-</head>
-<body>
-  <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
-  </script>
-  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
-</body>
-</html>
-
+          <h1 class="post-title" itemprop="name headline">Java8新特性之Lambda表达式总结</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-31T21:19:58+08:00">
+                2017-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">看书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/Java核心技术卷-第10版/" itemprop="url" rel="index">
+                    <span itemprop="name">Java核心技术卷(第10版)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/31/JavaCore/Java8_lambda/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/10/31/JavaCore/Java8_lambda/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/10/31/JavaCore/Java8_lambda/" class="leancloud_visitors" data-flag-title="Java8新特性之Lambda表达式总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h3><p>Lambda不是所有方法都能使用的，得满足一定的条件，比如得满足函数式接口。<br><img src="/images/java_core/lmbda.jpg" alt="小小牛博客"></p>
+<blockquote>
+<p>对于只有一个抽象方法的接口，需要这种借口的对象时，就可以提供一个Lambda表达式，这种接口称为函数式接口，也就是只有一个抽象方法的接口（不包括继承的）</p>
+</blockquote>
+<a id="more"></a>
+<p>函数式接口其实本质上还是一个接口，但是它是一种特殊的接口：SAM类型的接口（Single Abstract Method）。定义了这种类型的接口，使得以其为参数的方法，可以在调用时，使用一个lambda表达式作为参数。从另一个方面说，一旦我们调用某方法，可以传入lambda表达式作为参数，则这个方法的参数类型，必定是一个函数式的接口，(这个类型可以使用@FunctionalInterface进行修饰，好处是，如果无意中增加了方法或者不符合lambda接口规范，编译器会提示错误，另外javadoc中会指出是一个函数式接口，推荐使用注解</p>
+<p> 　　从SAM原则上讲，这个接口中，<strong> 只能有一个函数需要被实现 </strong>，但是也可以有如下例外:</p>
+<p> 　　　　1. 默认方法与静态方法并不影响函数式接口的契约，可以任意使用，即</p>
+<p> 　　　　　　函数式接口中可以有静态方法，一个或者多个静态方法不会影响SAM接口成为函数式接口，并且静态方法可以提供方法实现</p>
+<p> 　　　　　　可以由 default 修饰的默认方法方法，这个关键字是Java8中新增的，为的目的就是使得某一些接口，原则上只有一个方法被实现，但是由于历史原因，不得不加入一些方法来兼容整个JDK中的API，所以就需要使用default关键字来定义这样的方法</p>
+<h3 id="Lambda语法"><a href="#Lambda语法" class="headerlink" title="Lambda语法"></a>Lambda语法</h3><p> 一例胜千言</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// =====Lambda</span></span><br><span class="line"> <span class="comment">//这里省略list的构造</span></span><br><span class="line">List&lt;String&gt; names = ...;</span><br><span class="line">Collections.sort(names, (o1, o2) -&gt; o1.compareTo(o2));</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//===原始形态</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里省略list的构造</span></span><br><span class="line">List&lt;String&gt; names = ...;</span><br><span class="line">Collections.sort(names, <span class="keyword">new</span> Comparator&lt;String&gt;() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String o1, String o2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> o1.compareTo(o2);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>完整一般语法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	(Type1 param1, Type2 param2, ..., TypeN paramN) -&gt; &#123;</span><br><span class="line">  statment1;</span><br><span class="line">  statment2;</span><br><span class="line">  <span class="comment">//.............</span></span><br><span class="line">  <span class="keyword">return</span> statmentM;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>参数类型省略–绝大多数情况，编译器都可以从上下文环境中推断出lambda表达式的参数类型。这样lambda表达式就变成了：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(param1,param2, ..., paramN) -&gt; &#123;</span><br><span class="line">  statment1;</span><br><span class="line">  statment2;</span><br><span class="line">  <span class="comment">//.............</span></span><br><span class="line">  <span class="keyword">return</span> statmentM;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>当lambda表达式的参数个数只有一个，可以省略小括号。lambda表达式简写为：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">param1 -&gt; &#123;</span><br><span class="line">  statment1;</span><br><span class="line">  statment2;</span><br><span class="line">  <span class="comment">//.............</span></span><br><span class="line">  <span class="keyword">return</span> statmentM;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>当lambda表达式只包含一条语句时，可以省略大括号、return和语句结尾的分号。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param1 -&gt; statme</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="方法的引用"><a href="#方法的引用" class="headerlink" title="方法的引用"></a>方法的引用</h3><p>个人理解：上面的Lambda有点像是实现匿名内部类的一个简化版本，我们需要传入代码以实现函数式接口内的那个抽象方法，方法引用有点像是引用其他已经实现好的方法。我们就不用再实现了（当然得看引用的方法满不满足需求）</p>
+<h4 id="方法引用："><a href="#方法引用：" class="headerlink" title="方法引用："></a>方法引用：</h4><p>objectName::instanceMethod (对象.方法名)<br>ClassName::staticMethod  (类名.静态方法)<br>ClassName::instanceMethod</p>
+<p>前两种方式类似，等同于把lambda表达式的参数直接当成instanceMethod|staticMethod的参数来调用。比如System.out::println等同于x-&gt;System.out.println(x)；Math::max等同于(x, y)-&gt;Math.max(x,y)。</p>
+<p>最后一种方式（类名+非静态方法），等同于把lambda表达式的第一个参数当成instanceMethod的目标对象，其他剩余参数当成该方法的参数。比如String::toLowerCase等同于x-&gt;x.toLowerCase()。</p>
+<h4 id="构造器引用"><a href="#构造器引用" class="headerlink" title="构造器引用"></a>构造器引用</h4><p>构造器引用语法如下：构造器引用和方法引用有点类似，只不过方法名为new,如：ClassName::new，把lambda表达式的参数当成ClassName构造器的参数 。例如BigDecimal::new等同于x-&gt;new BigDecimal(x)。</p>
+<p>可以用数组类型建立构造器引用：<br>int[] :: new<br>他有一个参数即数组长度<br>等价于Lambda : x -&gt; new int[x]</p>
+<h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><p>Lambda表达式也可访问外部的变量(参考内部类)</p>
+<p>lambda表达式的三个重要组成部分：</p>
+<ul>
+<li>输入参数</li>
+<li>可执行语句</li>
+<li>自由变量的值，这是指非参数而且不在代码中定义的变量</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String[] array = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(Integer i : Lists.newArrayList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>))&#123;</span><br><span class="line">  Stream.of(array).map(item -&gt; Strings.padEnd(item, i, <span class="string">'@'</span>)).forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的这个例子中，map中的lambda表达式访问外部变量Integer i。</p>
+<p><strong><em> 不过lambda表达式访问外部变量有一个非常重要的限制：变量不可变（java是值传递，也就是说基本类型值不能变，只是引用不可变，而不是真正的不可变)可以参考内部类引用外部变量也是必须用final声明，不过在Lambda中编译器会隐式的当做final处理，不加fina也可以 </em></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String[] array = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;<span class="number">4</span>; i++)&#123;</span><br><span class="line">  Stream.of(array).map(item -&gt; Strings.padEnd(item, i, <span class="string">'@'</span>)).forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个要报错</p>
+<h3 id="Lambda中的this"><a href="#Lambda中的this" class="headerlink" title="Lambda中的this"></a>Lambda中的this</h3><p>在lambda中，this不是指向lambda表达式产生的那个SAM对象，而是声明它的外部对象。</p>
+<h3 id="处理（接收）Lambda表达式"><a href="#处理（接收）Lambda表达式" class="headerlink" title="处理（接收）Lambda表达式"></a>处理（接收）Lambda表达式</h3><p>上面我们已经了解和使用了Lambda表达式，下面讨论下怎么接收处理Lambda表达式</p>
+<p>使用Lambda的重点是延迟执行，像需要多次运行的场景就适合使用，jdk提供了很多常用的函数式接口，所以在自定义方法时可以使用这些函数式接口，不用自己再创建接口。还有一些基本类型的函数式接口，减少int double等的自动开装箱。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+  <div>我看他们都放打赏功能，我也放，只为了看起来逼格高</div>
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay/weixin.jpg" alt="卡卢比 WeChat Pay"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay/zhifubao.jpg" alt="卡卢比 Alipay"/>
+        <p>支付宝支付</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    卡卢比
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.lyq3.com/2017/10/31/JavaCore/Java8_lambda/" title="Java8新特性之Lambda表达式总结">http://blog.lyq3.com/2017/10/31/JavaCore/Java8_lambda/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA/" rel="tag"><i class="fa fa-tag"></i> JAVA</a>
+          
+            <a href="/tags/JAVA8/" rel="tag"><i class="fa fa-tag"></i> JAVA8</a>
+          
+            <a href="/tags/Lambda/" rel="tag"><i class="fa fa-tag"></i> Lambda</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/27/GoLang/base/" rel="next" title="Go语言学习之基础语法">
+                <i class="fa fa-chevron-left"></i> Go语言学习之基础语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/07/JavaCore/java_genericity/" rel="prev" title="Java基础之泛型总结">
+                Java基础之泛型总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -393,8 +686,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -487,6 +789,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式接口"><span class="nav-text">函数式接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda语法"><span class="nav-text">Lambda语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的引用"><span class="nav-text">方法的引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法引用："><span class="nav-text">方法引用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造器引用"><span class="nav-text">构造器引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的作用域"><span class="nav-text">变量的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda中的this"><span class="nav-text">Lambda中的this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理（接收）Lambda表达式"><span class="nav-text">处理（接收）Lambda表达式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -623,10 +941,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 

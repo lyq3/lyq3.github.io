@@ -95,12 +95,10 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SpringBoot,Swagger," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="卡卢比-Blog" type="application/atom+xml" />
@@ -115,14 +113,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="卡卢比-Blog">
-<meta property="og:url" content="http://blog.lyq3.com/404.html">
+<meta name="description" content="1. 运行环境 接上一篇文章 SpringBoot集成Swagger生成在线API文档SpringBoot + Swagger2 + swagger-bootstrap-ui   我们这里的UI使用的是第三方的swagger-bootstrap-ui 难免有一些BUg但是不影响使用">
+<meta name="keywords" content="SpringBoot,Swagger">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swagger常用注解与注意事项">
+<meta property="og:url" content="http://blog.lyq3.com/2017/08/19/swagger-annotation/index.html">
 <meta property="og:site_name" content="卡卢比-Blog">
+<meta property="og:description" content="1. 运行环境 接上一篇文章 SpringBoot集成Swagger生成在线API文档SpringBoot + Swagger2 + swagger-bootstrap-ui   我们这里的UI使用的是第三方的swagger-bootstrap-ui 难免有一些BUg但是不影响使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T10:44:26.095Z">
+<meta property="og:image" content="http://blog.lyq3.com/images/swagger/swagger-an.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/swagger/swagger-an2.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/swagger/swagger-an3.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/swagger/swagger-an4.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/swagger/swagger-an5.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/swagger/swagger-an7.png">
+<meta property="og:updated_time" content="2018-04-30T10:44:26.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卡卢比-Blog">
+<meta name="twitter:title" content="Swagger常用注解与注意事项">
+<meta name="twitter:description" content="1. 运行环境 接上一篇文章 SpringBoot集成Swagger生成在线API文档SpringBoot + Swagger2 + swagger-bootstrap-ui   我们这里的UI使用的是第三方的swagger-bootstrap-ui 难免有一些BUg但是不影响使用">
+<meta name="twitter:image" content="http://blog.lyq3.com/images/swagger/swagger-an.png">
 
 
 
@@ -151,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.lyq3.com/404.html"/>
+  <link rel="canonical" href="http://blog.lyq3.com/2017/08/19/swagger-annotation/"/>
 
 
 
 
 
-  <title> | 卡卢比-Blog</title>
+  <title>Swagger常用注解与注意事项 | 卡卢比-Blog</title>
   
 
 
@@ -316,49 +325,530 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/08/19/swagger-annotation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡卢比">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卢比-Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="robots" content="all">
-  <meta name="robots" content="index,follow">
-  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
-</head>
-<body>
-  <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
-  </script>
-  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
-</body>
-</html>
-
+          <h1 class="post-title" itemprop="name headline">Swagger常用注解与注意事项</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T14:24:26+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/19/swagger-annotation/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/19/swagger-annotation/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/08/19/swagger-annotation/" class="leancloud_visitors" data-flag-title="Swagger常用注解与注意事项">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="1-运行环境"><a href="#1-运行环境" class="headerlink" title="1. 运行环境"></a>1. 运行环境</h3><blockquote>
+<p>接上一篇文章 <a href="/2017/08/18/SpringBoot_Swagger">SpringBoot集成Swagger生成在线API文档</a><br>SpringBoot + Swagger2 + swagger-bootstrap-ui</p>
+</blockquote>
+<hr>
+<p>我们这里的UI使用的是第三方的swagger-bootstrap-ui 难免有一些BUg但是不影响使用</p>
+<p><img src="/images/swagger/swagger-an.png" alt="文档页面展示"><br><a id="more"></a></p>
+<h3 id="2-常用注解"><a href="#2-常用注解" class="headerlink" title="2.常用注解"></a>2.常用注解</h3><ul>
+<li>Api –类注解</li>
+<li>ApiModel</li>
+<li>ApiModelProperty</li>
+<li>ApiOperation</li>
+<li>ApiParam</li>
+<li>ApiResponse</li>
+<li>ApiResponses</li>
+<li>ResponseHeader</li>
+</ul>
+<h3 id="3-注解使用案列"><a href="#3-注解使用案列" class="headerlink" title="3.注解使用案列"></a>3.注解使用案列</h3><h5 id="▷-Api-注解"><a href="#▷-Api-注解" class="headerlink" title="▷ @Api 注解"></a>▷ @Api 注解</h5><blockquote>
+<p>该注解放在Controller类上用于描述一类接口，最终会在页面生成描述列表</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:left">url的路径值，可写中文描述</td>
+</tr>
+<tr>
+<td>tags</td>
+<td style="text-align:left">如果设置这个值、value的值会被覆盖</td>
+</tr>
+<tr>
+<td>description</td>
+<td style="text-align:left">对api资源的描述</td>
+</tr>
+<tr>
+<td>basePath</td>
+<td style="text-align:left">基本路径可以不配置</td>
+</tr>
+<tr>
+<td>position</td>
+<td style="text-align:left">如果配置多个Api 想改变显示的顺序位置</td>
+</tr>
+<tr>
+<td>produces</td>
+<td style="text-align:left">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>consumes</td>
+<td style="text-align:left">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>protocols</td>
+<td style="text-align:left">Possible values: http, https, ws, wss.</td>
+</tr>
+<tr>
+<td>authorizations</td>
+<td style="text-align:left">高级特性认证时配置</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td style="text-align:left">配置为true 将在文档中隐藏</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>(description = <span class="string">"/message"</span>,tags=<span class="string">"Message消息相关接口"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageContoller</span> <span class="keyword">extends</span> <span class="title">BaseContoller</span></span>&#123;</span><br><span class="line">  <span class="comment">//省略</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="/images/swagger/swagger-an2.png" alt="文档页面展示"></p>
+<h5 id="▷-ApiOperation-注解"><a href="#▷-ApiOperation-注解" class="headerlink" title="▷ @ApiOperation 注解"></a>▷ @ApiOperation 注解</h5><blockquote>
+<p>该注解放在Controller的方法上用于描述具体的接口</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th style="text-align:left">备注     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td style="text-align:left">url的路径值 ，可写中文描述</td>
+</tr>
+<tr>
+<td>tags</td>
+<td style="text-align:left">如果设置这个值、value的值会被覆盖</td>
+</tr>
+<tr>
+<td>description</td>
+<td style="text-align:left">对api资源的描述</td>
+</tr>
+<tr>
+<td>basePath</td>
+<td style="text-align:left">基本路径可以不配置</td>
+</tr>
+<tr>
+<td>position</td>
+<td style="text-align:left">如果配置多个Api 想改变显示的顺序位置</td>
+</tr>
+<tr>
+<td>produces</td>
+<td style="text-align:left">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>consumes</td>
+<td style="text-align:left">For example, “application/json, application/xml”</td>
+</tr>
+<tr>
+<td>protocols</td>
+<td style="text-align:left">Possible values: http, https, ws, wss.</td>
+</tr>
+<tr>
+<td>authorizations</td>
+<td style="text-align:left">高级特性认证时配置</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td style="text-align:left">配置为true 将在文档中隐藏</td>
+</tr>
+<tr>
+<td>response</td>
+<td style="text-align:left">返回的对象</td>
+</tr>
+<tr>
+<td>responseContainer</td>
+<td style="text-align:left">这些对象是有效的 “List”, “Set” or “Map”.，其他无效</td>
+</tr>
+<tr>
+<td>httpMethod</td>
+<td style="text-align:left">“GET”, “HEAD”, “POST”, “PUT”, “DELETE”, “OPTIONS” and “PATCH”</td>
+</tr>
+<tr>
+<td>code</td>
+<td style="text-align:left">http的状态码 默认 200</td>
+</tr>
+<tr>
+<td>extensions</td>
+<td style="text-align:left">扩展属性</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"/test"</span>, notes = <span class="string">"发送消息"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">sendMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="/images/swagger/swagger-an3.png" alt="文档页面展示"></p>
+<h5 id="▷-ApiParam-注解"><a href="#▷-ApiParam-注解" class="headerlink" title="▷ @ApiParam 注解"></a>▷ @ApiParam 注解</h5><blockquote>
+<p>该注解用于描述参数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td style="text-align:left">属性名称</td>
+</tr>
+<tr>
+<td>value</td>
+<td style="text-align:left">属性值</td>
+</tr>
+<tr>
+<td>defaultValue</td>
+<td style="text-align:left">默认属性值</td>
+</tr>
+<tr>
+<td>allowableValues</td>
+<td style="text-align:left">可以不配置</td>
+</tr>
+<tr>
+<td>required</td>
+<td style="text-align:left">是否属性必填</td>
+</tr>
+<tr>
+<td>access</td>
+<td style="text-align:left">不过多描述</td>
+</tr>
+<tr>
+<td>allowMultiple</td>
+<td style="text-align:left">默认为false</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td style="text-align:left">隐藏该属性</td>
+</tr>
+<tr>
+<td>example</td>
+<td style="text-align:left">举例子</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">test</span><span class="params">(@ApiParam(value = <span class="string">"验证码"</span>,required = <span class="keyword">true</span>)</span> @<span class="title">RequestParam</span><span class="params">(<span class="string">"code"</span>)</span> <span class="keyword">int</span> code,</span></span><br><span class="line"><span class="function">@<span class="title">ApiParam</span><span class="params">(value = <span class="string">"手机号"</span>,required = <span class="keyword">true</span>)</span> @<span class="title">RequestParam</span><span class="params">(<span class="string">"phoneNumber"</span>)</span> String phoneNumber,</span></span><br><span class="line"><span class="function">@<span class="title">ApiParam</span><span class="params">(value = <span class="string">"新密码"</span>,required = <span class="keyword">true</span>)</span> @<span class="title">RequestParam</span><span class="params">(<span class="string">"newPassword"</span>)</span> String newPassword)</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里需要注意一点：不知道是swagger-bootstrap-ui的 BUG 还是怎么的，如果只加 @ApiParam 不加@RequestParam注解，前台的接口测试会失效，接口测试时会将参数加入请求的body中而不是参数列表中，所以用了@ApiParam要加@RequestParam指定参数名，大多数时候我们还是用实体类接收参数，就不会出现这种情况</p>
+</blockquote>
+<p>效果：<br><img src="/images/swagger/swagger-an4.png" alt="文档页面展示"></p>
+<p><img src="/images/swagger/swagger-an5.png" alt="文档页面展示"></p>
+<h5 id="▷-ApiModel-注解"><a href="#▷-ApiModel-注解" class="headerlink" title="▷ @ApiModel 注解"></a>▷ @ApiModel 注解</h5><blockquote>
+<p>该注解用于描述实体类，通常与@ApiModelProperty共用<br>                                                |</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(<span class="string">"工单系统用户信息实体类"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TicketUser</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="▷-ApiModelProperty-注解"><a href="#▷-ApiModelProperty-注解" class="headerlink" title="▷ @ApiModelProperty 注解"></a>▷ @ApiModelProperty 注解</h5><blockquote>
+<p>该注解用于描述实体类字段</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(<span class="string">"工单系统用户信息实体类"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TicketUser</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"用户ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer user_id = <span class="number">0</span>;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"用户名，登录名"</span>)</span><br><span class="line">    <span class="keyword">private</span> String user_name = <span class="string">""</span>;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"密码"</span>)</span><br><span class="line">    <span class="keyword">private</span> String password = <span class="string">""</span>;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"有效表示（Y-有效，N-无效）"</span>)</span><br><span class="line">    <span class="keyword">private</span> String valid_status = <span class="string">""</span>;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(<span class="string">"对应的通讯录ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer contact_id=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//getter setter 省略</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="/images/swagger/swagger-an7.png" alt="文档页面展示"></p>
+<h5 id="▷-ApiResponse注解"><a href="#▷-ApiResponse注解" class="headerlink" title="▷ @ApiResponse注解"></a>▷ @ApiResponse注解</h5><blockquote>
+<p>用于响应配置</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td style="text-align:left">http的状态码</td>
+</tr>
+<tr>
+<td>message</td>
+<td style="text-align:left">描述</td>
+</tr>
+<tr>
+<td>response</td>
+<td style="text-align:left">默认响应类 Void</td>
+</tr>
+<tr>
+<td>reference</td>
+<td style="text-align:left">参考ApiOperation中配置</td>
+</tr>
+<tr>
+<td>responseHeaders</td>
+<td style="text-align:left">参考 ResponseHeader 属性配置说明</td>
+</tr>
+<tr>
+<td>responseContainer</td>
+<td style="text-align:left">参考ApiOperation中配置</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/order"</span>, method = POST)</span><br><span class="line">  <span class="meta">@ApiOperation</span>(value = <span class="string">"Place an order for a pet"</span>, response = Order.class)</span><br><span class="line">  <span class="meta">@ApiResponses</span>(&#123; <span class="meta">@ApiResponse</span>(code = <span class="number">400</span>, message = <span class="string">"Invalid Order"</span>) &#125;)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title">placeOrder</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      @ApiParam(value = <span class="string">"order placed for purchasing the pet"</span>, required = <span class="keyword">true</span>)</span> Order order) </span>&#123;</span><br><span class="line">    storeData.add(order);</span><br><span class="line">    <span class="keyword">return</span> ok(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其他更多注解可以去参考官方文档</p>
+</blockquote>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+  <div>我看他们都放打赏功能，我也放，只为了看起来逼格高</div>
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay/weixin.jpg" alt="卡卢比 WeChat Pay"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay/zhifubao.jpg" alt="卡卢比 Alipay"/>
+        <p>支付宝支付</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    卡卢比
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.lyq3.com/2017/08/19/swagger-annotation/" title="Swagger常用注解与注意事项">http://blog.lyq3.com/2017/08/19/swagger-annotation/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+          
+            <a href="/tags/Swagger/" rel="tag"><i class="fa fa-tag"></i> Swagger</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/SpringBoot_Swagger/" rel="next" title="SpringBoot集成Swagger生成在线API文档,并集成第三方UI">
+                <i class="fa fa-chevron-left"></i> SpringBoot集成Swagger生成在线API文档,并集成第三方UI
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/20/TemplateInputException/" rel="prev" title="org.thymeleaf.exceptions.TemplateInputException:template might not exist or might not be accessible by any of the configured Template Resolvers">
+                org.thymeleaf.exceptions.TemplateInputException:template might not exist or might not be accessible by any of the configured Template Resolvers <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -393,8 +883,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -487,6 +986,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-运行环境"><span class="nav-text">1. 运行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用注解"><span class="nav-text">2.常用注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-注解使用案列"><span class="nav-text">3.注解使用案列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#▷-Api-注解"><span class="nav-text">▷ @Api 注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▷-ApiOperation-注解"><span class="nav-text">▷ @ApiOperation 注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▷-ApiParam-注解"><span class="nav-text">▷ @ApiParam 注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▷-ApiModel-注解"><span class="nav-text">▷ @ApiModel 注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▷-ApiModelProperty-注解"><span class="nav-text">▷ @ApiModelProperty 注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#▷-ApiResponse注解"><span class="nav-text">▷ @ApiResponse注解</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -623,10 +1138,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 

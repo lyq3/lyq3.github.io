@@ -95,12 +95,10 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Spring,Spring in Action,AOP," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="卡卢比-Blog" type="application/atom+xml" />
@@ -115,14 +113,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="卡卢比-Blog">
-<meta property="og:url" content="http://blog.lyq3.com/404.html">
+<meta name="description" content="1.什么是AOP（面向切面编程） 不扯那些概念的东西，简单说来AOP是OOP的一个补充，AOP可以在程序运行期追加一些公用的功能，比如权限判断，日志记录，这些功能都是项目需要的，但是又不能每个地方都调用，这样无疑增加了代码的复杂度和工作量，我们可以将这些分散在系统中的公用代码集中于一个地方并通过aop技术应用于系统各个地方。 2. AOP术语 切点：我们需要插入这些公用功能的点？比如哪些类？哪些方">
+<meta name="keywords" content="Spring,Spring in Action,AOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring in Anction:Spring AOP 小记">
+<meta property="og:url" content="http://blog.lyq3.com/2017/08/22/Spring_in_Action/Spring-AOP/index.html">
 <meta property="og:site_name" content="卡卢比-Blog">
+<meta property="og:description" content="1.什么是AOP（面向切面编程） 不扯那些概念的东西，简单说来AOP是OOP的一个补充，AOP可以在程序运行期追加一些公用的功能，比如权限判断，日志记录，这些功能都是项目需要的，但是又不能每个地方都调用，这样无疑增加了代码的复杂度和工作量，我们可以将这些分散在系统中的公用代码集中于一个地方并通过aop技术应用于系统各个地方。 2. AOP术语 切点：我们需要插入这些公用功能的点？比如哪些类？哪些方">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T10:44:26.095Z">
+<meta property="og:image" content="http://blog.lyq3.com/images/Spring_in_Action/aop.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/Spring_in_Action/aop2.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/Spring_in_Action/aop3.png">
+<meta property="og:image" content="http://blog.lyq3.com/images/Spring_in_Action/aop5.png">
+<meta property="og:updated_time" content="2018-04-30T10:44:26.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卡卢比-Blog">
+<meta name="twitter:title" content="Spring in Anction:Spring AOP 小记">
+<meta name="twitter:description" content="1.什么是AOP（面向切面编程） 不扯那些概念的东西，简单说来AOP是OOP的一个补充，AOP可以在程序运行期追加一些公用的功能，比如权限判断，日志记录，这些功能都是项目需要的，但是又不能每个地方都调用，这样无疑增加了代码的复杂度和工作量，我们可以将这些分散在系统中的公用代码集中于一个地方并通过aop技术应用于系统各个地方。 2. AOP术语 切点：我们需要插入这些公用功能的点？比如哪些类？哪些方">
+<meta name="twitter:image" content="http://blog.lyq3.com/images/Spring_in_Action/aop.png">
 
 
 
@@ -151,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.lyq3.com/404.html"/>
+  <link rel="canonical" href="http://blog.lyq3.com/2017/08/22/Spring_in_Action/Spring-AOP/"/>
 
 
 
 
 
-  <title> | 卡卢比-Blog</title>
+  <title>Spring in Anction:Spring AOP 小记 | 卡卢比-Blog</title>
   
 
 
@@ -316,49 +323,331 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/08/22/Spring_in_Action/Spring-AOP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡卢比">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卢比-Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="robots" content="all">
-  <meta name="robots" content="index,follow">
-  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
-</head>
-<body>
-  <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
-  </script>
-  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
-</body>
-</html>
-
+          <h1 class="post-title" itemprop="name headline">Spring in Anction:Spring AOP 小记</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T20:43:28+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">看书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/Spring-in-Action/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring in Action</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/22/Spring_in_Action/Spring-AOP/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/22/Spring_in_Action/Spring-AOP/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/08/22/Spring_in_Action/Spring-AOP/" class="leancloud_visitors" data-flag-title="Spring in Anction:Spring AOP 小记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="1-什么是AOP（面向切面编程）"><a href="#1-什么是AOP（面向切面编程）" class="headerlink" title="1.什么是AOP（面向切面编程）"></a>1.什么是AOP（面向切面编程）</h3><p><img src="/images/Spring_in_Action/aop.png" alt="AOP"></p>
+<div class="note success"><p>不扯那些概念的东西，简单说来AOP是OOP的一个补充，AOP可以在程序运行期追加一些公用的功能，比如权限判断，日志记录，这些功能都是项目需要的，但是又不能每个地方都调用，这样无疑增加了代码的复杂度和工作量，我们可以将这些分散在系统中的公用代码集中于一个地方并通过aop技术应用于系统各个地方。</p></div>
+<h3 id="2-AOP术语"><a href="#2-AOP术语" class="headerlink" title="2. AOP术语"></a>2. AOP术语</h3><ul>
+<li>切点：我们需要插入这些公用功能的点？比如哪些类？哪些方法？等等（何处调用）</li>
+<li>切面：这些公用功能代码（调用什么）</li>
+<li>通知：在什么时候调用？<a id="more"></a>
+<h3 id="3-通知分类"><a href="#3-通知分类" class="headerlink" title="3.通知分类"></a>3.通知分类</h3></li>
+<li>前置通知（Before）：在目标方法调用前调用</li>
+<li>后置通知（After）：在目标方法调用后调用</li>
+<li>返回通知（AfterReturning）：在目标方法成功执行后调用</li>
+<li>异常通知（AfterThrowing）：在目标方法执行失败抛异常后调用</li>
+<li>环绕通知（Around）：将目标方法包裹，由你决定什么时候调用（最强大，最常用）<h3 id="3-Spring-AOP"><a href="#3-Spring-AOP" class="headerlink" title="3.Spring AOP"></a>3.Spring AOP</h3>Spring 通过生成代理类将目标对象包裹从而实现AOP，调用者调用目标方法时，其实是在调用代理类，再由代理类<br>调用目标方法，从而控制对目标方法的调用，Spring只支持最细方法级别的连接点，如果需要实现更细粒度的控制<br>则需要借助专业的AOP框架AspectJ，可以控制字段，构造方法等更细的东西，不过需要学习新的语法。</li>
+</ul>
+<p><img src="/images/Spring_in_Action/aop2.png" alt="AOP"></p>
+<h3 id="4-Spring-切点表达式"><a href="#4-Spring-切点表达式" class="headerlink" title="4.Spring 切点表达式"></a>4.Spring 切点表达式</h3><p>可以通过这些表达式配置切点</p>
+<p><img src="/images/Spring_in_Action/aop3.png" alt="AOP"></p>
+<p>上面是Spring支持的AspectJ 切点表达式。除execution是增加切点范围的外，其他都是用于缩小范围</p>
+<h3 id="5-编写切点"><a href="#5-编写切点" class="headerlink" title="5.编写切点"></a>5.编写切点</h3><p><img src="/images/Spring_in_Action/aop5.png" alt="AOP"></p>
+<h3 id="6-编写切面"><a href="#6-编写切面" class="headerlink" title="6.编写切面"></a>6.编写切面</h3><p>用注解@Aspect表示一个切面，注解用于类上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span> <span class="comment">//表示是切面</span></span><br><span class="line"><span class="meta">@Component</span> <span class="comment">//Bean注入Spring</span></span><br><span class="line"><span class="meta">@Order</span>(<span class="number">1</span>)<span class="comment">//优先执行该切面</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TicketLoginAspect</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HttpServletRequest request;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 切点</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">       <span class="comment">//表示作用于TicketLogin注解</span></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"@annotation(com.cnct.webchat.common.annotation.TicketLogin)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loginPointCut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//扩展作用范围，不用在每个@Around后写很长的表达式了，只需写方法名即可，像下面</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"loginPointCut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">around</span><span class="params">(ProceedingJoinPoint point)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>写完切面后要开启Spring aop自动代理才能生效，如果使用JavaConfig的话，在配置类上使用<br>@EnableAspectJ-AutoProxy即可，如果用XML配置则加入<a href="aop:aspectJ-autoproxy/" target="_blank" rel="noopener">aop:aspectJ-autoproxy/</a></p>
+</blockquote>
+<h3 id="7-通过注解为目标类增加新功能（方法）"><a href="#7-通过注解为目标类增加新功能（方法）" class="headerlink" title="7.通过注解为目标类增加新功能（方法）"></a>7.通过注解为目标类增加新功能（方法）</h3><p>既然AOP通过代理实现，那么就可以为目标对象增加新的代理方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span> <span class="comment">//定义切面</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAop</span></span>&#123;</span><br><span class="line">  <span class="meta">@DeclareParents</span>(value = <span class="string">"com.lyq3.NewFunctionInterface+"</span>,</span><br><span class="line">                  defaultImpl = NewFunctionImpl.class</span><br><span class="line">  )</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> Abc abc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>value 指定那种类型的Bean要引入，（后面的“+”号表示所有的子类型而不是本身）</li>
+<li>defaultImpl 指定引入功能的实现类</li>
+<li>@DeclareParents 所标注的静态属性指明要引入的接口，也就是要为Abc接口增加新功能</li>
+</ul>
+<h3 id="8-注意：踩坑记"><a href="#8-注意：踩坑记" class="headerlink" title="8.注意：踩坑记"></a>8.注意：踩坑记</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Order</span>(<span class="number">2</span>)<span class="comment">//登录注解执行后执行该注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandleRecordAspect</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HandleRecordMapper handleRecordMapper;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HttpSession session;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 切点</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"@annotation(com.cnct.webchat.common.annotation.HandleRecord)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handlePointCut</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"handlePointCut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">around</span><span class="params">(ProceedingJoinPoint point)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="comment">//先执行方法</span></span><br><span class="line">        Object result = point.proceed();</span><br><span class="line">        <span class="comment">//访问目标方法的参数：</span></span><br><span class="line">        Object[] args = point.getArgs();</span><br><span class="line"></span><br><span class="line">        Signature sig = point.getSignature();</span><br><span class="line">        MethodSignature msig = <span class="keyword">null</span>;</span><br><span class="line">        msig = (MethodSignature) sig;</span><br><span class="line">        Method method = msig.getMethod();</span><br><span class="line"><span class="comment">//        String methodName = msig.getName();//方法名</span></span><br><span class="line">        HandleRecord handleRecord = method.getAnnotation(HandleRecord.class);<span class="comment">//获取注解</span></span><br><span class="line">        <span class="comment">//操作标识（增?删?改?）</span></span><br><span class="line">        <span class="keyword">int</span> handle_status = handleRecord.handle_status();</span><br><span class="line">        String remark = handleRecord.value();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码是我在项目中实现一个存操作纪录的部分代码，咋一看没毛病。@HandleRecord这个自定义注解在Controller层能用，我放到Service层的时候（service有接口和接口实现，注解放实现类方法上）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HandleRecord handleRecord = method.getAnnotation(HandleRecord.class);</span><br></pre></td></tr></table></figure></p>
+<p>这句代码是获取不到注解的，也就是说 handleRecord = null;</p>
+<blockquote>
+<p>原因是AOP采用的jdk代理，MethodSignature 转型之后,会丢失子类的方法注解，所以得先获取实现类的方法</p>
+</blockquote>
+<p>修改下代码，就能用了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先执行方法</span></span><br><span class="line">        Object result = point.proceed();</span><br><span class="line">        <span class="comment">//访问目标方法的参数：</span></span><br><span class="line">        Object[] args = point.getArgs();</span><br><span class="line"></span><br><span class="line">        Signature sig = point.getSignature();</span><br><span class="line">        MethodSignature msig = <span class="keyword">null</span>;</span><br><span class="line">        msig = (MethodSignature) sig;</span><br><span class="line">        Method method = msig.getMethod();</span><br><span class="line">        <span class="comment">//MethodSignature 转型之后,会丢失子类的方法注解，所以得先获取实现类的方法</span></span><br><span class="line">        <span class="comment">//============================================</span></span><br><span class="line">        Method soruceMethod = point.getTarget().getClass().getMethod(method.getName(), method.getParameterTypes());</span><br><span class="line">        <span class="comment">//=============================================</span></span><br><span class="line">        HandleRecord handleRecord = soruceMethod.getAnnotation(HandleRecord.class);<span class="comment">//获取注解</span></span><br><span class="line">        <span class="comment">//操作标识（增?删?改?）</span></span><br><span class="line">        <span class="keyword">int</span> handle_status = handleRecord.handle_status();</span><br><span class="line">        String remark = handleRecord.value();</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>详情查看Spring in Action 第四版 第四章</p></div>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+  <div>我看他们都放打赏功能，我也放，只为了看起来逼格高</div>
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay/weixin.jpg" alt="卡卢比 WeChat Pay"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay/zhifubao.jpg" alt="卡卢比 Alipay"/>
+        <p>支付宝支付</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    卡卢比
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.lyq3.com/2017/08/22/Spring_in_Action/Spring-AOP/" title="Spring in Anction:Spring AOP 小记">http://blog.lyq3.com/2017/08/22/Spring_in_Action/Spring-AOP/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spring/" rel="tag"><i class="fa fa-tag"></i> Spring</a>
+          
+            <a href="/tags/Spring-in-Action/" rel="tag"><i class="fa fa-tag"></i> Spring in Action</a>
+          
+            <a href="/tags/AOP/" rel="tag"><i class="fa fa-tag"></i> AOP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/20/TemplateInputException/" rel="next" title="org.thymeleaf.exceptions.TemplateInputException:template might not exist or might not be accessible by any of the configured Template Resolvers">
+                <i class="fa fa-chevron-left"></i> org.thymeleaf.exceptions.TemplateInputException:template might not exist or might not be accessible by any of the configured Template Resolvers
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/04/Spring_in_Action/SpringMVC-1/" rel="prev" title="SpringMVC起步-构建Web应用程序">
+                SpringMVC起步-构建Web应用程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -393,8 +682,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -487,6 +785,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是AOP（面向切面编程）"><span class="nav-text">1.什么是AOP（面向切面编程）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AOP术语"><span class="nav-text">2. AOP术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-通知分类"><span class="nav-text">3.通知分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Spring-AOP"><span class="nav-text">3.Spring AOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Spring-切点表达式"><span class="nav-text">4.Spring 切点表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-编写切点"><span class="nav-text">5.编写切点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-编写切面"><span class="nav-text">6.编写切面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-通过注解为目标类增加新功能（方法）"><span class="nav-text">7.通过注解为目标类增加新功能（方法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-注意：踩坑记"><span class="nav-text">8.注意：踩坑记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -623,10 +937,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
