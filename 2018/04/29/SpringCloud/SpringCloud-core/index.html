@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="卡卢比-Blog">
 <meta property="og:description" content="微服务基础1、 微服务带来的挑战 运维的新挑战  微服务会导致部署的程序增多，合理的编排很重要 接口的一致性  微服务虽然拆分了，但还是需要通过接口进行业务上的依赖，若接口改变了，需要提供方和调用方协调改动，不然会出现接口不一致问题。 分布式的复杂性  由于拆分各个微服务都是独立运行各自的进程中，可能分布在不同的服务器、不同的地域，它们只能通过网络通信来进行合作，所以要考虑很多因素，如：网络延迟、">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T04:42:21.345Z">
+<meta property="og:updated_time" content="2018-05-01T04:43:14.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring in Anction:Spring AOP 小记">
 <meta name="twitter:description" content="微服务基础1、 微服务带来的挑战 运维的新挑战  微服务会导致部署的程序增多，合理的编排很重要 接口的一致性  微服务虽然拆分了，但还是需要通过接口进行业务上的依赖，若接口改变了，需要提供方和调用方协调改动，不然会出现接口不一致问题。 分布式的复杂性  由于拆分各个微服务都是独立运行各自的进程中，可能分布在不同的服务器、不同的地域，它们只能通过网络通信来进行合作，所以要考虑很多因素，如：网络延迟、">
@@ -463,7 +463,8 @@
 </blockquote>
 <ul>
 <li>使用HTTP 的RESTful API 或轻量级消息发送协议</li>
-<li>通过在轻量级消息总线上传递消息，如：rabbitMQ</li>
+<li>通过在轻量级消息总线上传递消息，如：rabbitMQ<a id="more"></a>
+</li>
 </ul>
 <h4 id="3、去中心化"><a href="#3、去中心化" class="headerlink" title="3、去中心化"></a>3、去中心化</h4><p>采用微服务后，各个组件通过RESTful 接口进行调用依赖，各个应用组件可以使用自己的数据库，可以使用不同的数据库（如MongoDB），而且不用局限于某一种技术，各个组件都可以选择合适的技术栈，避免出现“杀鸡用牛刀”的局面。</p>
 <h4 id="4、容错设计"><a href="#4、容错设计" class="headerlink" title="4、容错设计"></a>4、容错设计</h4><p>传统单体应用中，如果需要修改或增加一个功能则要将整个应用重新部署，如果某一组件出现问题就会出现一挂全挂的局面，而微服务架构中某一组件出现问题可以单独下线不影响其他功能使用。</p>
