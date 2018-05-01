@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="卡卢比-Blog">
 <meta property="og:description" content="微服务基础1、 微服务带来的挑战 运维的新挑战  微服务会导致部署的程序增多，合理的编排很重要 接口的一致性  微服务虽然拆分了，但还是需要通过接口进行业务上的依赖，若接口改变了，需要提供方和调用方协调改动，不然会出现接口不一致问题。 分布式的复杂性  由于拆分各个微服务都是独立运行各自的进程中，可能分布在不同的服务器、不同的地域，它们只能通过网络通信来进行合作，所以要考虑很多因素，如：网络延迟、">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-01T04:44:08.519Z">
+<meta property="og:updated_time" content="2018-05-01T04:45:18.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring in Anction:Spring AOP 小记">
 <meta name="twitter:description" content="微服务基础1、 微服务带来的挑战 运维的新挑战  微服务会导致部署的程序增多，合理的编排很重要 接口的一致性  微服务虽然拆分了，但还是需要通过接口进行业务上的依赖，若接口改变了，需要提供方和调用方协调改动，不然会出现接口不一致问题。 分布式的复杂性  由于拆分各个微服务都是独立运行各自的进程中，可能分布在不同的服务器、不同的地域，它们只能通过网络通信来进行合作，所以要考虑很多因素，如：网络延迟、">
@@ -472,8 +472,7 @@
 <h4 id="6、SpringCloud简介"><a href="#6、SpringCloud简介" class="headerlink" title="6、SpringCloud简介"></a>6、SpringCloud简介</h4><p>SpringCloud包含多个子项目，还会不断增加：</p>
 <ul>
 <li>SpringCloud Config :配置中心，支持使用git存储配置文件，提高项目配置灵活性</li>
-<li>SpringCloud Netflix: 核心组件，对Netflix OSS开源套件进行组合，包含：</li>
-</ul>
+<li><p>SpringCloud Netflix: 核心组件，对Netflix OSS开源套件进行组合，包含：</p>
 <ol>
 <li>Eureka:注册中心，服务的发现与注册</li>
 <li>Hystrix: 容错管理组件，提供降级熔断等保护机制</li>
@@ -482,8 +481,9 @@
 <li>Zuul: 网管组件，提供智能路由、访问过滤等功能</li>
 <li>Archaius: 外部化配置组件</li>
 </ol>
-<ul>
-<li>SpringCloud Bus ： 事件、消息总线</li>
+</li>
+<li><p>SpringCloud Bus ： 事件、消息总线</p>
+</li>
 <li>SpringCloud Cluster: 针对ZooKeeper、Redis、Consul的选举算法和通用状态模式的实现</li>
 </ul>
 
