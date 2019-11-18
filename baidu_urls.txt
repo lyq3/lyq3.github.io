@@ -1,1 +1,1 @@
-http://blog.lyq3.com/2018/04/29/SpringCloud/SpringCloud-core/
+http://blog.lyq3.com/2019/11/11/elasticsearch/DSL-FullTextQueries/
