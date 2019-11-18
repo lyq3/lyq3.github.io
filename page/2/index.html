@@ -330,6 +330,374 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/09/13/Spring_in_Action/SpringMVC3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡卢比">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卢比-Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/13/Spring_in_Action/SpringMVC3/" itemprop="url">SpringMvc-文件上传</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T22:30:40+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">看书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/Spring-in-Action/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring in Action</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/09/13/Spring_in_Action/SpringMVC3/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.lyq3.com/2017/09/13/Spring_in_Action/SpringMVC3/" class="cy_cmt_count" data-xid="2017/09/13/Spring_in_Action/SpringMVC3/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/09/13/Spring_in_Action/SpringMVC3/" class="leancloud_visitors" data-flag-title="SpringMvc-文件上传">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>文件上传我一直感觉是个麻烦事，一提到文件上传我脑海中浮现的是二进制、byte数组、输入输出流、读写文件<br>感觉头都大了，所以为了以后不再头大，正好最近在看Spring in Action 正好研究下，用各种姿势上传文件。传各种小黄片^-^。</p>
+</blockquote>
+<p><img src="/images/Spring_in_Action/timg.jpg" alt="SpringMVC--小小牛博客"></p>
+<h3 id="1-Spring-MVC中配置文件上传"><a href="#1-Spring-MVC中配置文件上传" class="headerlink" title="1.Spring MVC中配置文件上传"></a>1.Spring MVC中配置文件上传</h3><p>下面是我随手上传一张图片的请求体：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">------WebKitFormBoundaryiYXA5UiOJRgWnKnt</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"upfile"</span>; filename=<span class="string">"0.jpg"</span></span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------WebKitFormBoundaryiYXA5UiOJRgWnKnt--</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/13/Spring_in_Action/SpringMVC3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/09/10/Spring_in_Action/SpringMvc-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡卢比">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卢比-Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/10/Spring_in_Action/SpringMvc-2/" itemprop="url">SpringMvc-渲染Web视图</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T22:34:07+08:00">
+                2017-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">看书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/看书笔记/Spring-in-Action/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring in Action</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/09/10/Spring_in_Action/SpringMvc-2/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.lyq3.com/2017/09/10/Spring_in_Action/SpringMvc-2/" class="cy_cmt_count" data-xid="2017/09/10/Spring_in_Action/SpringMvc-2/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/09/10/Spring_in_Action/SpringMvc-2/" class="leancloud_visitors" data-flag-title="SpringMvc-渲染Web视图">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-理解SpringMVC视图解析"><a href="#1-理解SpringMVC视图解析" class="headerlink" title="1.理解SpringMVC视图解析"></a>1.理解SpringMVC视图解析</h3><blockquote>
+<p>上一篇讲到SpringMVC执行流程，DispatcherServlet会将模型和视图名交给视图解析器来解析生成响应视图</p>
+</blockquote>
+<p><img src="/images/Spring_in_Action/mvc2.jpg" alt="SpringMVC--小小牛博客"></p>
+<p>Spring MVC定义了一个名为ViewResolver的接口，它大致如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ViewResolver</span></span>&#123;</span><br><span class="line">  <span class="function">View <span class="title">resolveViewName</span><span class="params">(String viewName, Locale locale)</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/10/Spring_in_Action/SpringMvc-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/09/09/zhuan/zuoxiaolong/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1710,350 +2078,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/08/14/java_overload/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="卡卢比">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="卡卢比-Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/14/java_overload/" itemprop="url">java方法的重载与特殊情况</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T21:00:00+08:00">
-                2017-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/08/14/java_overload/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://blog.lyq3.com/2017/08/14/java_overload/" class="cy_cmt_count" data-xid="2017/08/14/java_overload/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/2017/08/14/java_overload/" class="leancloud_visitors" data-flag-title="java方法的重载与特殊情况">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>方法重载，通过方法的签名（方法名+参数列表）识别，特殊情况除外，</p>
-<p>特殊情况：（1.6以后编译不通过，应该是官方修复了，方法重载还是只能靠方法签名）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public int test(List&lt;Integer&gt; list)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String test(List&lt;String&gt; list)&#123;</span><br><span class="line">		return &quot;&quot;;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/14/java_overload/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/08/14/http_url_uri_urn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="卡卢比">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="卡卢比-Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/14/http_url_uri_urn/" itemprop="url">认识HTTP，区分URI 、URL 、URN</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T21:00:00+08:00">
-                2017-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/08/14/http_url_uri_urn/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://blog.lyq3.com/2017/08/14/http_url_uri_urn/" class="cy_cmt_count" data-xid="2017/08/14/http_url_uri_urn/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/2017/08/14/http_url_uri_urn/" class="leancloud_visitors" data-flag-title="认识HTTP，区分URI 、URL 、URN">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://img.blog.csdn.net/20170216212946690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTEwMjgyNTMwODY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="网络分层"></p>
-<h3 id="1、认识Http"><a href="#1、认识Http" class="headerlink" title="1、认识Http"></a>1、认识Http</h3><p>HTTP是一种网络传输协议即超文本传输协议（还有其他文件传输协议FTP、邮件传输协议SMTP等），就是大家讲好规矩，都按这个规矩来，有序规范，并保证数据传输的稳定性与完整性。<br>HTTP协议底层基于TCP/IP协议，利用TCP/IP创建连接并传输数据，HTTP位于TCP/IP 上层，如下图：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/14/http_url_uri_urn/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2099,7 +2128,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2110,7 +2139,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
