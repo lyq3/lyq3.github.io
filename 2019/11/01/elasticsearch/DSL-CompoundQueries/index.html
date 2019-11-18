@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ElasticSearch," />
 
 
 
@@ -113,16 +113,21 @@
 
 
 
-<meta name="description" content="Living without an aim is like sailing without a compass">
-<meta property="og:type" content="website">
-<meta property="og:title" content="卡卢比-Blog">
-<meta property="og:url" content="http://blog.lyq3.com/archives/2019/11/index.html">
+<meta name="description" content="复合查询bool 查询 组合查询，组合多个查询类型     类型 说明 计分     must 字句必须出现在文档中 是   filter 字句必须匹配，如：status=1,在filter上下文中执行，不参与计分 否   should 字句应该出现在文档中 是   must_not 字句不得出现在文档中，在filter上下文中执行 否">
+<meta name="keywords" content="ElasticSearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES查询DSL之复合查询">
+<meta property="og:url" content="http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/index.html">
 <meta property="og:site_name" content="卡卢比-Blog">
-<meta property="og:description" content="Living without an aim is like sailing without a compass">
+<meta property="og:description" content="复合查询bool 查询 组合查询，组合多个查询类型     类型 说明 计分     must 字句必须出现在文档中 是   filter 字句必须匹配，如：status=1,在filter上下文中执行，不参与计分 否   should 字句应该出现在文档中 是   must_not 字句不得出现在文档中，在filter上下文中执行 否">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/index_files/9fa9b106-4e3c-4894-b3c0-95e5a32a1067.png">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/index_files/c7e02b62-d07c-435e-a3f1-d1cf601f61e0.png">
+<meta property="og:updated_time" content="2019-11-18T14:14:40.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卡卢比-Blog">
-<meta name="twitter:description" content="Living without an aim is like sailing without a compass">
+<meta name="twitter:title" content="ES查询DSL之复合查询">
+<meta name="twitter:description" content="复合查询bool 查询 组合查询，组合多个查询类型     类型 说明 计分     must 字句必须出现在文档中 是   filter 字句必须匹配，如：status=1,在filter上下文中执行，不参与计分 否   should 字句应该出现在文档中 是   must_not 字句不得出现在文档中，在filter上下文中执行 否">
+<meta name="twitter:image" content="http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/index_files/9fa9b106-4e3c-4894-b3c0-95e5a32a1067.png">
 
 
 
@@ -151,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.lyq3.com/archives/2019/11/"/>
+  <link rel="canonical" href="http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/"/>
 
 
 
 
 
-  <title>归档 | 卡卢比-Blog</title>
+  <title>ES查询DSL之复合查询 | 卡卢比-Blog</title>
   
 
 
@@ -176,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -314,111 +319,409 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 20 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡卢比">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡卢比-Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/11/11/elasticsearch/DSL-FullTextQueries/" itemprop="url">
-              
-                <span itemprop="name">ES查询DSL之全文查询</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">ES查询DSL之复合查询</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-11T20:43:28+08:00"
-              content="2019-11-11" >
-          11-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-01T20:43:28+08:00">
+                2019-11-01
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ElasticSearch/" itemprop="url" rel="index">
+                    <span itemprop="name">ElasticSearch</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ElasticSearch/DSL/" itemprop="url" rel="index">
+                    <span itemprop="name">DSL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2019/11/01/elasticsearch/DSL-CompoundQueries/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2019/11/01/elasticsearch/DSL-CompoundQueries/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2019/11/01/elasticsearch/DSL-CompoundQueries/" class="leancloud_visitors" data-flag-title="ES查询DSL之复合查询">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/11/01/elasticsearch/DSL-CompoundQueries/" itemprop="url">
-              
-                <span itemprop="name">ES查询DSL之复合查询</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-01T20:43:28+08:00"
-              content="2019-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h3 id="复合查询"><a href="#复合查询" class="headerlink" title="复合查询"></a>复合查询</h3><h4 id="bool-查询"><a href="#bool-查询" class="headerlink" title="bool 查询"></a>bool 查询</h4><blockquote>
+<p>组合查询，组合多个查询类型</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>计分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>must</td>
+<td>字句必须出现在文档中</td>
+<td>是</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>字句必须匹配，如：status=1,在filter上下文中执行，不参与计分</td>
+<td>否</td>
+</tr>
+<tr>
+<td>should</td>
+<td>字句应该出现在文档中</td>
+<td>是</td>
+</tr>
+<tr>
+<td>must_not</td>
+<td>字句不得出现在文档中，在filter上下文中执行</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<p>例子：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123; </span><br><span class="line">    <span class="attr">"bool"</span>: &#123; </span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123; <span class="attr">"match"</span>: &#123; <span class="attr">"name"</span>:   <span class="string">"液"</span>        &#125;&#125;,</span><br><span class="line">        &#123; <span class="attr">"match"</span>: &#123; <span class="attr">"productGeneralName"</span>: <span class="string">"液"</span> &#125;&#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"filter"</span>: [ </span><br><span class="line">        &#123; <span class="attr">"term"</span>:  &#123; <span class="attr">"status"</span>: <span class="string">"1"</span> &#125;&#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"should"</span>:[&#123;</span><br><span class="line">        <span class="attr">"term"</span>: &#123;<span class="attr">"name"</span>: <span class="string">"太极"</span>&#125;</span><br><span class="line">      &#125;,&#123;</span><br><span class="line">        <span class="attr">"term"</span>:&#123;<span class="attr">"name"</span>:<span class="string">"哟西"</span>&#125;</span><br><span class="line">      &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"must_not"</span>: [</span><br><span class="line">        &#123;<span class="attr">"match"</span>: &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"筋骨"</span></span><br><span class="line">        &#125;&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><img src="index_files/9fa9b106-4e3c-4894-b3c0-95e5a32a1067.png" alt=""></p>
+<blockquote>
+<p>bool采用“更好匹配”的原则，匹配条件越多的分数越高越靠前，must或should子句的得分将加在一起，通过_score返回最终得分，filter上下文中执行的条件（filter和must_not）得分为0</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123; </span><br><span class="line">    <span class="attr">"bool"</span>: &#123; </span><br><span class="line">     </span><br><span class="line">      <span class="attr">"filter"</span>: [ </span><br><span class="line">        &#123; <span class="attr">"term"</span>:  &#123; <span class="attr">"status"</span>: <span class="string">"1"</span> &#125;&#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"must_not"</span>: [</span><br><span class="line">        &#123;<span class="attr">"match"</span>: &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"阿莫西林"</span></span><br><span class="line">        &#125;&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上结果得分为0：<br><img src="index_files/c7e02b62-d07c-435e-a3f1-d1cf601f61e0.png" alt=""></p>
+<h4 id="Boosting-查询"><a href="#Boosting-查询" class="headerlink" title="Boosting 查询"></a>Boosting 查询</h4><blockquote>
+<p>通过一定规则来影响得分，可以使用boosting查询来降级某些文档，而不必将它们从搜索结果中排除</p>
+</blockquote>
+<p>例：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"query"</span>: &#123;</span><br><span class="line">        <span class="attr">"boosting"</span> : &#123;</span><br><span class="line">            <span class="attr">"positive"</span> : &#123;</span><br><span class="line">                <span class="attr">"term"</span> : &#123;</span><br><span class="line">                    <span class="attr">"text"</span> : <span class="string">"apple"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"negative"</span> : &#123;</span><br><span class="line">                 <span class="attr">"term"</span> : &#123;</span><br><span class="line">                     <span class="attr">"text"</span> : <span class="string">"pie"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"negative_boost"</span> : <span class="number">0.5</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>positive(必需)：正向激励，查询出包含”apple”的数据。</li>
+<li>negative(必需)：负向激励，降低包含”pie”的得分，但不会排除</li>
+<li>negative_boost(必需)：降低得分的比重<blockquote>
+<p>假如positive返回的数据得分为2，negative匹配后会将2*0.5 = 1，所以最终得分1，以此降低包含“pie”数据的得分</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="Constant-score-查询（固定得分查询）"><a href="#Constant-score-查询（固定得分查询）" class="headerlink" title="Constant score 查询（固定得分查询）"></a>Constant score 查询（固定得分查询）</h4><blockquote>
+<p>包装filter查询（filter的默认得分是0），给匹配的文档赋一个固定的得分</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"query"</span>: &#123;</span><br><span class="line">        <span class="attr">"constant_score"</span> : &#123;</span><br><span class="line">            <span class="attr">"filter"</span> : &#123;</span><br><span class="line">                <span class="attr">"term"</span> : &#123; <span class="attr">"user"</span> : <span class="string">"kimchy"</span>&#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"boost"</span> : <span class="number">1.2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>filter（必需）：用于过滤出文档</li>
+<li>boost（可选，默认1.0）： 设置的固定得分</li>
+</ul>
+<h4 id="Disjunction-max-query-最佳匹配查询-or-分离最大化查询"><a href="#Disjunction-max-query-最佳匹配查询-or-分离最大化查询" class="headerlink" title="Disjunction max query(最佳匹配查询 or 分离最大化查询)"></a>Disjunction max query(最佳匹配查询 or 分离最大化查询)</h4><blockquote>
+<p>将任何与任一查询匹配的文档作为结果返回，但只将最佳匹配的评分作为查询的评分结果返回,也就是返回最高的一个得分</p>
+</blockquote>
+<p>例：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"query"</span>: &#123;</span><br><span class="line">        <span class="attr">"dis_max"</span> : &#123;</span><br><span class="line">            <span class="attr">"queries"</span> : [</span><br><span class="line">                &#123; <span class="attr">"term"</span> : &#123; <span class="attr">"title"</span> : <span class="string">"Quick pets"</span> &#125;&#125;,</span><br><span class="line">                &#123; <span class="attr">"term"</span> : &#123; <span class="attr">"body"</span> : <span class="string">"Quick pets"</span> &#125;&#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"tie_breaker"</span> : <span class="number">0.7</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>queries（必需的查询对象数组）：包含一个或多个查询子句，并返回匹配分最高的一个得分</li>
+<li>tie_breaker(可选)：值是一个浮点数（0~1.0），该参数的作用是将除最高分外其他几个条件的匹配得分也考虑进去。例如：值为0.2，那么 最终得分= 最高分 + 其他得分 * 0.2</li>
+</ul>
+<p>参考链接：<a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_best_fields.html#_best_fields" target="_blank" rel="noopener">https://www.elastic.co/guide/cn/elasticsearch/guide/current/_best_fields.html#_best_fields</a></p>
+<h4 id="Function-score-查询-（功能得分查询）"><a href="#Function-score-查询-（功能得分查询）" class="headerlink" title="Function score 查询 （功能得分查询）"></a>Function score 查询 （功能得分查询）</h4><blockquote>
+<p>就是为返回的结果计算一个新的得分，包含一个查询和一个或多个函数，这些函数为每个返回的文档计算一个新得分。也能用过滤器对结果的<em>子集 </em>应用不同的函数</p>
+</blockquote>
+<p>例：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"query"</span>: &#123;</span><br><span class="line">        <span class="attr">"function_score"</span>: &#123;</span><br><span class="line">            <span class="attr">"query"</span>: &#123; <span class="attr">"match"</span>: &#123;</span><br><span class="line">              <span class="attr">"name"</span>: <span class="string">"太极"</span></span><br><span class="line">            &#125; &#125;,</span><br><span class="line">            <span class="attr">"functions"</span>: [</span><br><span class="line">              &#123;</span><br><span class="line">                <span class="attr">"filter"</span>: &#123;<span class="attr">"match"</span>:&#123;<span class="attr">"name"</span>:<span class="string">"液"</span>&#125;&#125;,</span><br><span class="line">                <span class="attr">"random_score"</span>: &#123;&#125;</span><br><span class="line">              &#125;,</span><br><span class="line">              &#123;</span><br><span class="line">                <span class="attr">"filter"</span>: &#123;<span class="attr">"match"</span>:&#123;<span class="attr">"name"</span>:<span class="string">"通天"</span>&#125;&#125;,</span><br><span class="line">                <span class="attr">"weight"</span>: <span class="number">50</span></span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"score_mode"</span>:<span class="string">"multiply"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>如果没有给函数提供过滤器，则等同于指定 “match_all”: {}</p>
+</blockquote>
+<ul>
+<li>score_mode:指定如何组合计算出的分数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multiply</td>
+<td>分数相乘（默认）</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>分数相加</td>
+</tr>
+<tr>
+<td>avg</td>
+<td>分数求平均值</td>
+</tr>
+<tr>
+<td>first</td>
+<td>具有匹配过滤器的第一个函数被应用</td>
+</tr>
+<tr>
+<td>max</td>
+<td>使用最高分</td>
+</tr>
+<tr>
+<td>min</td>
+<td>使用最低分数</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>太多了，脑壳痛，参考链接：<a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-function-score-query.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-function-score-query.html</a></p>
+</blockquote>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+  <div>我看他们都放打赏功能，我也放，只为了看起来逼格高</div>
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay/weixin.jpg" alt="卡卢比 WeChat Pay"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay/zhifubao.jpg" alt="卡卢比 Alipay"/>
+        <p>支付宝支付</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    卡卢比
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/" title="ES查询DSL之复合查询">http://blog.lyq3.com/2019/11/01/elasticsearch/DSL-CompoundQueries/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ElasticSearch/" rel="tag"><i class="fa fa-tag"></i> ElasticSearch</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/29/SpringCloud/SpringCloud-core/" rel="next" title="微服务学习之微服务基础">
+                <i class="fa fa-chevron-left"></i> 微服务学习之微服务基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/11/elasticsearch/DSL-FullTextQueries/" rel="prev" title="ES查询DSL之全文查询">
+                ES查询DSL之全文查询 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -426,6 +729,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -446,8 +755,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -540,6 +858,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#复合查询"><span class="nav-text">复合查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bool-查询"><span class="nav-text">bool 查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boosting-查询"><span class="nav-text">Boosting 查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constant-score-查询（固定得分查询）"><span class="nav-text">Constant score 查询（固定得分查询）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Disjunction-max-query-最佳匹配查询-or-分离最大化查询"><span class="nav-text">Disjunction max query(最佳匹配查询 or 分离最大化查询)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-score-查询-（功能得分查询）"><span class="nav-text">Function score 查询 （功能得分查询）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -676,11 +1010,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
