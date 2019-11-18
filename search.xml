@@ -41,6 +41,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[ES查询DSL之复合查询]]></title>
+    <url>%2F2017%2F10%2F27%2Felasticsearch%2Fbase%2F</url>
+    <content type="text"><![CDATA[复合查询bool 查询 组合查询，组合多个查询类型 类型 说明 计分 must 字句必须出现在文档中 是 filter 字句必须匹配，如：status=1,在filter上下文中执行，不参与计分 否 should 字句应该出现在文档中 是 must_not 字句不得出现在文档中，在filter上下文中执行 否 例子：123456789101112131415161718192021222324&#123; "query": &#123; "bool": &#123; "must": [ &#123; "match": &#123; "name": "液" &#125;&#125;, &#123; "match": &#123; "productGeneralName": "液" &#125;&#125; ], "filter": [ &#123; "term": &#123; "status": "1" &#125;&#125; ], "should":[&#123; "term": &#123;"name": "太极"&#125; &#125;,&#123; "term":&#123;"name":"哟西"&#125; &#125; ], "must_not": [ &#123;"match": &#123; "name": "筋骨" &#125;&#125; ] &#125; &#125;&#125; 结果： bool采用“更好匹配”的原则，匹配条件越多的分数越高越靠前，must或should子句的得分将加在一起，通过_score返回最终得分，filter上下文中执行的条件（filter和must_not）得分为0 123456789101112131415&#123; "query": &#123; "bool": &#123; "filter": [ &#123; "term": &#123; "status": "1" &#125;&#125; ], "must_not": [ &#123;"match": &#123; "name": "阿莫西林" &#125;&#125; ] &#125; &#125;&#125; 以上结果得分为0： Boosting 查询 通过一定规则来影响得分，可以使用boosting查询来降级某些文档，而不必将它们从搜索结果中排除 例：1234567891011121314151617&#123; "query": &#123; "boosting" : &#123; "positive" : &#123; "term" : &#123; "text" : "apple" &#125; &#125;, "negative" : &#123; "term" : &#123; "text" : "pie" &#125; &#125;, "negative_boost" : 0.5 &#125; &#125;&#125; positive(必需)：正向激励，查询出包含”apple”的数据。 negative(必需)：负向激励，降低包含”pie”的得分，但不会排除 negative_boost(必需)：降低得分的比重 假如positive返回的数据得分为2，negative匹配后会将2*0.5 = 1，所以最终得分1，以此降低包含“pie”数据的得分 Constant score 查询（固定得分查询） 包装filter查询（filter的默认得分是0），给匹配的文档赋一个固定的得分 12345678910&#123; "query": &#123; "constant_score" : &#123; "filter" : &#123; "term" : &#123; "user" : "kimchy"&#125; &#125;, "boost" : 1.2 &#125; &#125;&#125; filter（必需）：用于过滤出文档 boost（可选，默认1.0）： 设置的固定得分 Disjunction max query(最佳匹配查询 or 分离最大化查询) 将任何与任一查询匹配的文档作为结果返回，但只将最佳匹配的评分作为查询的评分结果返回,也就是返回最高的一个得分 例：1234567891011&#123; "query": &#123; "dis_max" : &#123; "queries" : [ &#123; "term" : &#123; "title" : "Quick pets" &#125;&#125;, &#123; "term" : &#123; "body" : "Quick pets" &#125;&#125; ], "tie_breaker" : 0.7 &#125; &#125;&#125; queries（必需的查询对象数组）：包含一个或多个查询子句，并返回匹配分最高的一个得分 tie_breaker(可选)：值是一个浮点数（0~1.0），该参数的作用是将除最高分外其他几个条件的匹配得分也考虑进去。例如：值为0.2，那么 最终得分= 最高分 + 其他得分 * 0.2 参考链接：https://www.elastic.co/guide/cn/elasticsearch/guide/current/_best_fields.html#_best_fields Function score 查询 （功能得分查询） 就是为返回的结果计算一个新的得分，包含一个查询和一个或多个函数，这些函数为每个返回的文档计算一个新得分。也能用过滤器对结果的子集 应用不同的函数 例：1234567891011121314151617181920&#123; "query": &#123; "function_score": &#123; "query": &#123; "match": &#123; "name": "太极" &#125; &#125;, "functions": [ &#123; "filter": &#123;"match":&#123;"name":"液"&#125;&#125;, "random_score": &#123;&#125; &#125;, &#123; "filter": &#123;"match":&#123;"name":"通天"&#125;&#125;, "weight": 50 &#125; ], "score_mode":"multiply" &#125; &#125;&#125; 如果没有给函数提供过滤器，则等同于指定 “match_all”: {} score_mode:指定如何组合计算出的分数 取值 说明 multiply 分数相乘（默认） sum 分数相加 avg 分数求平均值 first 具有匹配过滤器的第一个函数被应用 max 使用最高分 min 使用最低分数 太多了，脑壳痛，参考链接：https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-function-score-query.html]]></content>
+      <categories>
+        <category>ElasticSearch</category>
+      </categories>
+      <tags>
+        <tag>ElasticSearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Go语言学习之基础语法]]></title>
     <url>%2F2017%2F10%2F27%2FGoLang%2Fbase%2F</url>
     <content type="text"><![CDATA[包Go使用package来组织代码。每一个可独立运行的Go程序，必定包含一个package main，在这个main包中必定包含一个入口函数main，而这个函数既没有参数，也没有返回值。Go使用UTF-8字符串和标识符(因为UTF-8的发明者也就是Go的发明者之一)，所以它天生支持多语言。]]></content>
@@ -210,17 +221,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[java方法的重载与特殊情况]]></title>
-    <url>%2F2017%2F08%2F14%2Fjava_overload%2F</url>
-    <content type="text"><![CDATA[方法重载，通过方法的签名（方法名+参数列表）识别，特殊情况除外， 特殊情况：（1.6以后编译不通过，应该是官方修复了，方法重载还是只能靠方法签名） 1234567public int test(List&lt;Integer&gt; list)&#123; return 1; &#125; public String test(List&lt;String&gt; list)&#123; return &quot;&quot;; &#125; 【java代码中，函数的特征签名仅仅包括方法名称、参数类型以及参数顺序。但在字节码中，特征签名还包括了方法的返回值以及受查异常表，这就是为什么在class文件中，其他都相同仅仅返回值不同的两个方法能共存的原因】 ==============上面特殊情况1。6后作废============ 主类型的过载: 主（数据）类型能从一个“较小”的类型自动转变成一个“较大”的类型。例如： 1234567public void abc(long tem)&#123; System.out.println(tem); &#125;//下面调用传入int值会自动转换，小转大 abc(5);//char 获得的效果稍有些不同，这是由于假期它没有发现一个准确的char 匹//配，就会转型为int 若我们的自变量“大于”过载方法期望的自变量，这时又会出现什么情况呢？ 这里是大转小，不能自动转，所以会报错，传参的时候要手动强转才行]]></content>
-      <categories>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>Java Core</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[认识HTTP，区分URI 、URL 、URN]]></title>
     <url>%2F2017%2F08%2F14%2Fhttp_url_uri_urn%2F</url>
     <content type="text"><![CDATA[1、认识HttpHTTP是一种网络传输协议即超文本传输协议（还有其他文件传输协议FTP、邮件传输协议SMTP等），就是大家讲好规矩，都按这个规矩来，有序规范，并保证数据传输的稳定性与完整性。HTTP协议底层基于TCP/IP协议，利用TCP/IP创建连接并传输数据，HTTP位于TCP/IP 上层，如下图： 2、资源我们每天上网实际上就是在访问服务器上存放的资源，一个网页，一张jpg图片，一部avi视频等等都是web资源，但资源并非一定是静态文件，也可以是其他动态的数据，比如通过传递不同的参数而返回不同的数据。 3、媒体类型MIME网上有数千种不同的数据类型，jpg、html、mp4等等，在传输这些数据时HTTP都要为传输的对象打上名为MIME类型（MIME type）的数据格式标签。 html格式的文档就用text/html标记 jpeg格式的图片就用image/jpeg标记 gif格式图片就用image/gif标记常见的MIME类型有数百个，实验性或特殊用途的MIME类型更多 4、UＲI、URL、URN的联系与区别资源是放在服务器上的，那么我们怎么样才能访问到指定的资源呢？我们要对资源进行标识，通过这个唯一的标识就能找到资源。这个唯一的标识就被称为统一资源标识符（也就是URI） 通常标识有两种标识方式，一种是通过唯一的路径标识，通过标识服务器位置和资源在服务器上的位置就能对资源进行唯一的标识，这个叫做统一资源定位符（也就是URL）还有一种标识方式是通过唯一的名称来表示，这个叫做统一资源名（也就是URN）。也可以简单将URL和URN理解成URI的子集，目前大部分是URL]]></content>
@@ -230,6 +230,17 @@
       <tags>
         <tag>http</tag>
         <tag>TCP\IP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java方法的重载与特殊情况]]></title>
+    <url>%2F2017%2F08%2F14%2Fjava_overload%2F</url>
+    <content type="text"><![CDATA[方法重载，通过方法的签名（方法名+参数列表）识别，特殊情况除外， 特殊情况：（1.6以后编译不通过，应该是官方修复了，方法重载还是只能靠方法签名） 1234567public int test(List&lt;Integer&gt; list)&#123; return 1; &#125; public String test(List&lt;String&gt; list)&#123; return &quot;&quot;; &#125; 【java代码中，函数的特征签名仅仅包括方法名称、参数类型以及参数顺序。但在字节码中，特征签名还包括了方法的返回值以及受查异常表，这就是为什么在class文件中，其他都相同仅仅返回值不同的两个方法能共存的原因】 ==============上面特殊情况1。6后作废============ 主类型的过载: 主（数据）类型能从一个“较小”的类型自动转变成一个“较大”的类型。例如： 1234567public void abc(long tem)&#123; System.out.println(tem); &#125;//下面调用传入int值会自动转换，小转大 abc(5);//char 获得的效果稍有些不同，这是由于假期它没有发现一个准确的char 匹//配，就会转型为int 若我们的自变量“大于”过载方法期望的自变量，这时又会出现什么情况呢？ 这里是大转小，不能自动转，所以会报错，传参的时候要手动强转才行]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>Java Core</tag>
       </tags>
   </entry>
 </search>
