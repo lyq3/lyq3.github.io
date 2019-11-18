@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="卡卢比-Blog">
 <meta property="og:description" content="文档操作API添加文档数据 构建索引请求123456IndexRequest request = new IndexRequest(&quot;posts&quot;);request.id(&quot;1&quot;); //文档ID//数据String jsonString =     &quot;&amp;#123;&quot; + &quot;\&quot;user\&quot;:\&quot;kimchy\&quot;,&quot; + &quot;\&quot;postDate\&quot;:\&quot;2013-01-30\&quot;,&quot; + &quot;\&quot;me">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-18T14:31:47.581Z">
+<meta property="og:updated_time" content="2019-11-18T14:33:03.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES查询DSL之全文查询">
 <meta name="twitter:description" content="文档操作API添加文档数据 构建索引请求123456IndexRequest request = new IndexRequest(&quot;posts&quot;);request.id(&quot;1&quot;); //文档ID//数据String jsonString =     &quot;&amp;#123;&quot; + &quot;\&quot;user\&quot;:\&quot;kimchy\&quot;,&quot; + &quot;\&quot;postDate\&quot;:\&quot;2013-01-30\&quot;,&quot; + &quot;\&quot;me">
@@ -456,6 +456,7 @@
 <li>构建索引请求<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IndexRequest request = <span class="keyword">new</span> IndexRequest(<span class="string">"posts"</span>);</span><br><span class="line">request.id(<span class="string">"1"</span>); <span class="comment">//文档ID</span></span><br><span class="line"><span class="comment">//数据</span></span><br><span class="line">String jsonString = </span><br><span class="line">    <span class="string">"&#123;"</span> + <span class="string">"\"user\":\"kimchy\","</span> + <span class="string">"\"postDate\":\"2013-01-30\","</span> + <span class="string">"\"message\":\"trying out Elasticsearch\""</span> + <span class="string">"&#125;"</span>; </span><br><span class="line">request.source(jsonString, XContentType.JSON);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <blockquote>
 <p>除了JSON字符串还可使用Map和XContentBuilder提供数据，另外还可使用 <code>Object</code> key-pairs 的方式：source(Object… source)</p>
 </blockquote>

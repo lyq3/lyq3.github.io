@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="卡卢比-Blog">
 <meta property="og:description" content="创建索引构建索引请求1CreateIndexRequest request = new CreateIndexRequest(&quot;product&quot;);  设置分片 1request.settings(Settings.builder() .put(&quot;index.number_of_shards&quot;, 3) .put(&quot;index.number_of_replicas&quot;, 2) );  设置mappin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-18T14:31:43.590Z">
+<meta property="og:updated_time" content="2019-11-18T14:33:19.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES查询DSL之全文查询">
 <meta name="twitter:description" content="创建索引构建索引请求1CreateIndexRequest request = new CreateIndexRequest(&quot;product&quot;);  设置分片 1request.settings(Settings.builder() .put(&quot;index.number_of_shards&quot;, 3) .put(&quot;index.number_of_replicas&quot;, 2) );  设置mappin">
@@ -461,6 +461,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.mapping( <span class="string">"&#123;\n"</span> + <span class="string">" \"properties\": &#123;\n"</span> + <span class="string">" \"message\": &#123;\n"</span> + <span class="string">" \"type\": \"text\"\n"</span> + <span class="string">" &#125;\n"</span> + <span class="string">" &#125;\n"</span> + <span class="string">"&#125;"</span>, XContentType.JSON);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># JSON 参考</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"user"</span>: &#123;</span><br><span class="line">              <span class="attr">"type"</span>: <span class="string">"text"</span>,</span><br><span class="line">              <span class="attr">"analyzer"</span>: <span class="string">"ik_max_word"</span>,</span><br><span class="line">              <span class="attr">"search_analyzer"</span>: <span class="string">"ik_smart"</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>es新版本不再推荐使用Type,这里不再设置type,不设置默认type为：_doc</p>
