@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>卡卢比-Blog</title>
   
-  <subtitle>坚持看书|坚持健身|坚持码代码</subtitle>
+  <subtitle>reading|fitness|coding</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.lyq3.com/"/>
