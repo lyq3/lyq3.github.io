@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java Core," />
+  <meta name="keywords" content="docker,redis," />
 
 
 
@@ -113,18 +113,26 @@
 
 
 
-<meta name="description" content="方法重载，通过方法的签名（方法名+参数列表）识别，特殊情况除外， 特殊情况：（1.6以后编译不通过，应该是官方修复了，方法重载还是只能靠方法签名） 1234567public int test(List&amp;lt;Integer&amp;gt; list)&amp;#123;		return 1;	&amp;#125;	public String test(List&amp;lt;String&amp;gt; list)&amp;#123;		re">
-<meta name="keywords" content="Java Core">
+<meta name="description" content="docker安装redis（哨兵模式） 准备工作，5台本地虚拟机，三台哨兵，2台redis（一主一从），安装好docker环境。（也可以在一台机器上启动5个实例，配置5个不同端口即可）  下载镜像 搜索redis镜像1docker search redis">
+<meta name="keywords" content="docker,redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java方法的重载与特殊情况">
-<meta property="og:url" content="http://blog.lyq3.com/2017/08/14/java_overload/index.html">
+<meta property="og:title" content="docker安装redis（哨兵模式）">
+<meta property="og:url" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index.html">
 <meta property="og:site_name" content="卡卢比-Blog">
-<meta property="og:description" content="方法重载，通过方法的签名（方法名+参数列表）识别，特殊情况除外， 特殊情况：（1.6以后编译不通过，应该是官方修复了，方法重载还是只能靠方法签名） 1234567public int test(List&amp;lt;Integer&amp;gt; list)&amp;#123;		return 1;	&amp;#125;	public String test(List&amp;lt;String&amp;gt; list)&amp;#123;		re">
+<meta property="og:description" content="docker安装redis（哨兵模式） 准备工作，5台本地虚拟机，三台哨兵，2台redis（一主一从），安装好docker环境。（也可以在一台机器上启动5个实例，配置5个不同端口即可）  下载镜像 搜索redis镜像1docker search redis">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T10:44:26.100Z">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/81b7daa8-47b9-49c3-af26-e44e6e44530e.png">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/52ce32ff-c79d-4d0a-ae1b-3f9a7c4858cf.png">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/87318598-b710-477c-b337-b73351344800.png">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/e7529c0f-7a32-4eb1-9a91-e0ea76ac0f81.png">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/0076475e-cba7-48be-8b5f-1b5d03f71abb.png">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/07166fb9-83ca-4fd9-a02e-40bd6887f9ba.png">
+<meta property="og:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/5ed28a2e-d3a5-44a8-be9f-6cc0db29812f.png">
+<meta property="og:updated_time" content="2019-11-22T15:08:37.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java方法的重载与特殊情况">
-<meta name="twitter:description" content="方法重载，通过方法的签名（方法名+参数列表）识别，特殊情况除外， 特殊情况：（1.6以后编译不通过，应该是官方修复了，方法重载还是只能靠方法签名） 1234567public int test(List&amp;lt;Integer&amp;gt; list)&amp;#123;		return 1;	&amp;#125;	public String test(List&amp;lt;String&amp;gt; list)&amp;#123;		re">
+<meta name="twitter:title" content="docker安装redis（哨兵模式）">
+<meta name="twitter:description" content="docker安装redis（哨兵模式） 准备工作，5台本地虚拟机，三台哨兵，2台redis（一主一从），安装好docker环境。（也可以在一台机器上启动5个实例，配置5个不同端口即可）  下载镜像 搜索redis镜像1docker search redis">
+<meta name="twitter:image" content="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/index_files/81b7daa8-47b9-49c3-af26-e44e6e44530e.png">
 
 
 
@@ -153,13 +161,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.lyq3.com/2017/08/14/java_overload/"/>
+  <link rel="canonical" href="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/"/>
 
 
 
 
 
-  <title>java方法的重载与特殊情况 | 卡卢比-Blog</title>
+  <title>docker安装redis（哨兵模式） | 卡卢比-Blog</title>
   
 
 
@@ -330,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2017/08/14/java_overload/">
+    <link itemprop="mainEntityOfPage" href="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="卡卢比">
@@ -347,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java方法的重载与特殊情况</h1>
+          <h1 class="post-title" itemprop="name headline">docker安装redis（哨兵模式）</h1>
         
 
         <div class="post-meta">
@@ -359,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T21:00:00+08:00">
-                2017-08-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-22T20:43:28+08:00">
+                2019-11-22
               </time>
             
 
@@ -382,8 +390,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -401,8 +409,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/08/14/java_overload/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/14/java_overload/" itemprop="commentsCount"></span>
+                <a href="/2019/11/22/docker/install-redis-sentinel/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2019/11/22/docker/install-redis-sentinel/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -410,7 +418,7 @@
 
           
           
-             <span id="/2017/08/14/java_overload/" class="leancloud_visitors" data-flag-title="java方法的重载与特殊情况">
+             <span id="/2019/11/22/docker/install-redis-sentinel/" class="leancloud_visitors" data-flag-title="docker安装redis（哨兵模式）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -441,17 +449,126 @@
       
 
       
-        <p>方法重载，通过方法的签名（方法名+参数列表）识别，特殊情况除外，</p>
-<p>特殊情况：（1.6以后编译不通过，应该是官方修复了，方法重载还是只能靠方法签名）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public int test(List&lt;Integer&gt; list)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String test(List&lt;String&gt; list)&#123;</span><br><span class="line">		return &quot;&quot;;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="docker安装redis（哨兵模式）"><a href="#docker安装redis（哨兵模式）" class="headerlink" title="docker安装redis（哨兵模式）"></a>docker安装redis（哨兵模式）</h1><blockquote>
+<p>准备工作，5台本地虚拟机，三台哨兵，2台redis（一主一从），安装好docker环境。（也可以在一台机器上启动5个实例，配置5个不同端口即可）</p>
+</blockquote>
+<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><ul>
+<li>搜索redis镜像<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search redis</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <a id="more"></a>
-<p>【java代码中，函数的特征签名仅仅包括方法名称、参数类型以及参数顺序。但在字节码中，特征签名还包括了方法的返回值以及受查异常表，这就是为什么在class文件中，其他都相同仅仅返回值不同的两个方法能共存的原因】</p>
-<p>==============上面特殊情况1。6后作废============</p>
-<p><strong>主类型的过载:</strong></p>
-<p>主（数据）类型能从一个“较小”的类型自动转变成一个“较大”的类型。<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void abc(long tem)&#123;</span><br><span class="line">		System.out.println(tem);</span><br><span class="line">	&#125;</span><br><span class="line">//下面调用传入int值会自动转换，小转大</span><br><span class="line">	abc(5);</span><br><span class="line">//char 获得的效果稍有些不同，这是由于假期它没有发现一个准确的char 匹</span><br><span class="line">//配，就会转型为int</span><br></pre></td></tr></table></figure>
-<p>若我们的自变量“大于”过载方法期望的自变量，这时又会出现什么情况呢？</p>
-<p>这里是大转小，不能自动转，所以会报错，传参的时候要手动强转才行</p>
+<p><img src="index_files/81b7daa8-47b9-49c3-af26-e44e6e44530e.png" alt=""></p>
+<ul>
+<li>下载镜像<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.io/redis:5.0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="index_files/52ce32ff-c79d-4d0a-ae1b-3f9a7c4858cf.png" alt=""></p>
+<blockquote>
+<p>redis 版本可在<a href="https://hub.docker.com/" title="dockerhub" target="_blank" rel="noopener">dockerhub</a>仓库查看</p>
+</blockquote>
+<h3 id="主从配置"><a href="#主从配置" class="headerlink" title="主从配置"></a>主从配置</h3><ul>
+<li>创建数据目录和配置目录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/redis/data</span><br><span class="line">mkdir /usr/redis/config</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>后面将会把容器内的文件挂载出来</p>
+</blockquote>
+<h4 id="主节点配置"><a href="#主节点配置" class="headerlink" title="主节点配置"></a>主节点配置</h4><pre><code>在/usr/redis/config下创建配置文件redis.conf并添加配置参数：
+</code></pre><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#是否在后台执行，yes：后台运行；no：不是后台运行</span></span><br><span class="line"><span class="string">daemonize</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#是否开启保护模式，默认开启。要是配置里没有指定bind和密码。开启该参数后，redis只会本地进行访问，拒绝外部访问。</span></span><br><span class="line"><span class="string">protected-mode</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#redis监听的端口号。</span></span><br><span class="line"><span class="string">port</span> <span class="number">6379</span></span><br><span class="line"><span class="comment">#指定 redis 只接收来自于该 IP 地址的请求，如果不进行设置，那么将处理所有请求，或者写成0.0.0.0</span></span><br><span class="line"><span class="comment">#bind 127.0.0.1</span></span><br><span class="line"><span class="comment">#指定了记录日志的文件。空字符串的话，日志会打印到标准输出设备。后台运行的redis标准输出是/dev/null。</span></span><br><span class="line"><span class="string">logfile</span> <span class="string">/logs/redis-server.log</span></span><br><span class="line"><span class="comment"># 900秒（15分钟）内至少1个key值改变（则进行数据库保存--持久化）</span></span><br><span class="line"><span class="string">save</span> <span class="number">900</span> <span class="number">1</span></span><br><span class="line"><span class="comment">#当RDB持久化出现错误后，是否依然进行继续进行工作，yes：不能进行工作，no：可以继续进行工作，可以通过info中的rdb_last_bgsave_status了解RDB持久化是否有错误</span></span><br><span class="line"><span class="string">stop-writes-on-bgsave-error</span> <span class="literal">yes</span></span><br><span class="line"><span class="comment">#数据目录，数据库的写入会在这个目录。rdb、aof文件也会写在这个目录</span></span><br><span class="line"><span class="string">dir</span> <span class="string">/data</span></span><br></pre></td></tr></table></figure>
+<h4 id="从节点配置"><a href="#从节点配置" class="headerlink" title="从节点配置"></a>从节点配置</h4><pre><code>除了以上配置项外，从节点还需增加主从相关配置
+</code></pre><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#是否在后台执行，yes：后台运行；no：不是后台运行</span></span><br><span class="line"><span class="string">daemonize</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#是否开启保护模式，默认开启。要是配置里没有指定bind和密码。开启该参数后，redis只会本地进行访问，拒绝外部访问。</span></span><br><span class="line"><span class="string">protected-mode</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#redis监听的端口号。</span></span><br><span class="line"><span class="string">port</span> <span class="number">6379</span></span><br><span class="line"><span class="comment">#指定 redis 只接收来自于该 IP 地址的请求，如果不进行设置，那么将处理所有请求，或者写成0.0.0.0</span></span><br><span class="line"><span class="comment">#bind 127.0.0.1</span></span><br><span class="line"><span class="comment">#指定了记录日志的文件。空字符串的话，日志会打印到标准输出设备。后台运行的redis标准输出是/dev/null。</span></span><br><span class="line"><span class="string">logfile</span> <span class="string">/logs/redis-server.log</span></span><br><span class="line"><span class="comment"># 900秒（15分钟）内至少1个key值改变（则进行数据库保存--持久化）</span></span><br><span class="line"><span class="string">save</span> <span class="number">900</span> <span class="number">1</span></span><br><span class="line"><span class="comment">#当RDB持久化出现错误后，是否依然进行继续进行工作，yes：不能进行工作，no：可以继续进行工作，可以通过info中的rdb_last_bgsave_status了解RDB持久化是否有错误</span></span><br><span class="line"><span class="string">stop-writes-on-bgsave-error</span> <span class="literal">yes</span></span><br><span class="line"><span class="comment">#数据目录，数据库的写入会在这个目录。rdb、aof文件也会写在这个目录，下面的文件路径将会挂载出去，自定义。</span></span><br><span class="line"><span class="string">dir</span> <span class="string">/data</span></span><br><span class="line"></span><br><span class="line"><span class="comment">############### 主从复制 ###############</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#作为从服务器，默认情况下是只读的（yes），可以修改成NO，用于写（不建议）。</span></span><br><span class="line"><span class="string">slave-read-only</span> <span class="literal">yes</span></span><br><span class="line"><span class="comment"># 设定master的IP和端口号，redis配置文件中的默认端口号是6379</span></span><br><span class="line"><span class="comment"># 低版本的redis这里会是slaveof，意思是一样的，因为slave是比较敏感的词汇，所以在redis后面的版本中不在使用slave的概念，取而代之的是replica</span></span><br><span class="line"><span class="comment"># 将192.168.72.128做为主，其余一台机器做从。ip和端口号按照机器和配置做相应修改。</span></span><br><span class="line"><span class="string">replicaof</span> <span class="number">192.168</span><span class="number">.72</span><span class="number">.128</span> <span class="number">6379</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">docker</span> <span class="string">run</span> <span class="bullet">-d</span> <span class="bullet">--name</span> <span class="string">redis</span> <span class="bullet">--restart=always</span> <span class="bullet">-p</span> <span class="number">6379</span><span class="string">:6379</span> <span class="string">\</span></span><br><span class="line"><span class="bullet">-</span><span class="bullet">-privileged=true</span> <span class="string">\</span></span><br><span class="line"><span class="bullet"> -</span><span class="string">v</span> <span class="string">/usr/redis/data/:/data</span> <span class="string">\</span></span><br><span class="line"><span class="bullet"> -</span><span class="string">v</span> <span class="string">/usr/redis/redis.conf:/usr/local/etc/redis/redis.conf</span> <span class="string">\</span></span><br><span class="line"> <span class="number">17</span><span class="string">a9b6c90ffd</span> <span class="string">redis-server</span> <span class="string">/usr/local/etc/redis/redis.conf</span></span><br></pre></td></tr></table></figure>
+<pre><code>参数说明：
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>后台运行容器</td>
+</tr>
+<tr>
+<td>–name</td>
+<td>容器名称</td>
+</tr>
+<tr>
+<td>–restart</td>
+<td>开机自动启动容器</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>端口映射</td>
+</tr>
+<tr>
+<td>–privileged=true</td>
+<td>容器内root用户将真正拥有root权限（可不写）</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>文件挂载，格式：外部文件:docker内部文件（与上面配置文件里定义的文件路径保持一致：如dir:/data）</td>
+</tr>
+<tr>
+<td>17a9b6c90ffd</td>
+<td>镜像ID</td>
+</tr>
+<tr>
+<td>redis-server</td>
+<td>redis的启动服务，固定的</td>
+</tr>
+<tr>
+<td>/usr/local/etc/redis/redis.conf</td>
+<td>采用此配置文件启动redis-server服务</td>
+</tr>
+</tbody>
+</table>
+<h4 id="验证主从配置"><a href="#验证主从配置" class="headerlink" title="验证主从配置"></a>验证主从配置</h4><ul>
+<li>进入到容器中<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> redis是容器名</span><br><span class="line">docker exec -it redis bash</span><br><span class="line"><span class="meta">#</span> 进入redis 客户端,这里没设置密码</span><br><span class="line">redis-cli</span><br><span class="line"><span class="meta">#</span> 查看节点信息</span><br><span class="line">info replication</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="index_files/87318598-b710-477c-b337-b73351344800.png" alt=""></p>
+<h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h4><ul>
+<li>Can’t open the log file: Permission denied<br><img src="index_files/e7529c0f-7a32-4eb1-9a91-e0ea76ac0f81.png" alt=""><blockquote>
+<p>这是因为没给挂载的文件写权限，给整个redis目录赋权就行了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 /usr/redis</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="添加哨兵集群配置"><a href="#添加哨兵集群配置" class="headerlink" title="添加哨兵集群配置"></a>添加哨兵集群配置</h3><blockquote>
+<p>哨兵本质上也是redis实例，只是配置不同而已，起到监控redis主从的作用，当主节点挂掉后将从节点提升为主节点，当主节点重新恢复后自动将其作为从节点加入到集群中。起到保证集群高可用的作用</p>
+</blockquote>
+<h4 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h4><blockquote>
+<p>参考官方配置文件：<a href="http://download.redis.io/redis-stable/sentinel.conf" target="_blank" rel="noopener">http://download.redis.io/redis-stable/sentinel.conf</a></p>
+</blockquote>
+<ul>
+<li>修改配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#是否在后台执行，yes：后台运行；no：不是后台运行</span></span><br><span class="line"><span class="string">daemonize</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#是否开启保护模式，默认开启。要是配置里没有指定bind和密码。开启该参数后，redis只会本地进行访问，拒绝外部访问。</span></span><br><span class="line"><span class="string">protected-mode</span> <span class="literal">no</span></span><br><span class="line"><span class="comment">#redis监听的端口号。</span></span><br><span class="line"><span class="string">port</span> <span class="number">6379</span></span><br><span class="line"><span class="comment">#指定 redis 只接收来自于该 IP 地址的请求，如果不进行设置，那么将处理所有请求</span></span><br><span class="line"><span class="comment">#bind 127.0.0.1</span></span><br><span class="line"><span class="comment">#指定了记录日志的文件。空字符串的话，日志会打印到标准输出设备。后台运行的redis标准输出是/dev/null。</span></span><br><span class="line"><span class="string">logfile</span> <span class="string">/logs/redis-server.log</span></span><br><span class="line"><span class="comment"># 900秒（15分钟）内至少1个key值改变（则进行数据库保存--持久化）</span></span><br><span class="line"><span class="string">save</span> <span class="number">900</span> <span class="number">1</span></span><br><span class="line"><span class="comment">#当RDB持久化出现错误后，是否依然进行继续进行工作，yes：不能进行工作，no：可以继续进行工作，可以通过info中的rdb_last_bgsave_status了解RDB持久化是否有错误</span></span><br><span class="line"><span class="string">stop-writes-on-bgsave-error</span> <span class="literal">yes</span></span><br><span class="line"><span class="comment">#数据目录，数据库的写入会在这个目录。rdb、aof文件也会写在这个目录</span></span><br><span class="line"><span class="string">dir</span> <span class="string">/data</span></span><br><span class="line"><span class="comment">#设置AOF模式开启（持久化）</span></span><br><span class="line"><span class="string">appendonly</span> <span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##############哨兵#################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最后一个2表示，两台机器判定主被动下线后，就进行failover(故障转移)，quorum是一个数字，指明当有多少个sentinel认为一个master失效时，master才算真正失效</span></span><br><span class="line"><span class="string">sentinel</span> <span class="string">monitor</span> <span class="string">mymaster</span> <span class="number">192.168</span><span class="number">.72</span><span class="number">.128</span> <span class="number">6379</span> <span class="number">2</span></span><br><span class="line"><span class="comment"># 同时监控其他两台哨兵机器</span></span><br><span class="line"><span class="comment">#sentinel auth-pass &lt;master-name&gt; &lt;password&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#这个配置项指定了需要多少失效时间，一个master才会被这个sentinel主观地认为是不可用的。 单位是毫秒，默认为30秒</span></span><br><span class="line"><span class="string">sentinel</span> <span class="string">down-after-milliseconds</span> <span class="string">mymaster</span> <span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#failover-timeout 可以用在以下这些方面：     </span></span><br><span class="line"><span class="comment">#1. 同一个sentinel对同一个master两次failover之间的间隔时间。   </span></span><br><span class="line"><span class="comment">#2. 当一个slave从一个错误的master那里同步数据开始计算时间。直到slave被纠正为向正确的master那里同步数据时。    </span></span><br><span class="line"><span class="comment">#3.当想要取消一个正在进行的failover所需要的时间。    </span></span><br><span class="line"><span class="comment">#4.当进行failover时，配置所有slaves指向新的master所需的最大时间。不过，即使过了这个超时，slaves依然会被正确配置为指向master，但是就不按parallel-syncs所配置的规则来了。</span></span><br><span class="line"><span class="string">sentinel</span> <span class="string">failover-timeout</span> <span class="string">mymaster</span> <span class="number">180000</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动哨兵<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 和启动主从类似，只需要把redis-server改为redis-sentinel即可</span><br><span class="line"> docker run -d --name redis --restart=always -p 6379:6379 \</span><br><span class="line"> --privileged=true  -v /usr/redis/data:/data  \</span><br><span class="line"> -v /usr/redis/config/redis.conf:/usr/local/etc/redis/redis.conf  \</span><br><span class="line"> -v /usr/redis/logs/redis-server.log:/logs/redis-server.log  \</span><br><span class="line"> 17a9b6c90ffd redis-sentinel /usr/local/etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="查看哨兵是否启动成功"><a href="#查看哨兵是否启动成功" class="headerlink" title="查看哨兵是否启动成功"></a>查看哨兵是否启动成功</h4><blockquote>
+<p>再次打开哨兵的配置文件，将会看到文件被改写，增加了3台哨兵之间的互相监控配置</p>
+</blockquote>
+<p><img src="index_files/0076475e-cba7-48be-8b5f-1b5d03f71abb.png" alt=""></p>
+<h4 id="验证哨兵的自动故障转移"><a href="#验证哨兵的自动故障转移" class="headerlink" title="验证哨兵的自动故障转移"></a>验证哨兵的自动故障转移</h4><ul>
+<li>先查看从节点信息<br><img src="index_files/07166fb9-83ca-4fd9-a02e-40bd6887f9ba.png" alt=""></li>
+<li><p>关闭主节点</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop redis</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>等一会再次查看从节点信息<br><img src="index_files/5ed28a2e-d3a5-44a8-be9f-6cc0db29812f.png" alt=""></p>
+</li>
+</ul>
+<blockquote>
+<p>从节点自动变成了master节点。实现了自动转移</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>填写配置文件一定要仔细，挂载文件也要仔细，即使挂载的文件不正确redis也能正常启动并采用默认的配置，导致主从配置不生效</p>
+</blockquote>
 
       
     </div>
@@ -502,7 +619,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://blog.lyq3.com/2017/08/14/java_overload/" title="java方法的重载与特殊情况">http://blog.lyq3.com/2017/08/14/java_overload/</a>
+    <a href="http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/" title="docker安装redis（哨兵模式）">http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -517,7 +634,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java-Core/" rel="tag"><i class="fa fa-tag"></i> Java Core</a>
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
           
         </div>
       
@@ -530,8 +649,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/14/http_url_uri_urn/" rel="next" title="认识HTTP，区分URI 、URL 、URN">
-                <i class="fa fa-chevron-left"></i> 认识HTTP，区分URI 、URL 、URN
+              <a href="/2019/11/11/elasticsearch/DSL-FullTextQueries/" rel="next" title="ES查询DSL之全文查询">
+                <i class="fa fa-chevron-left"></i> ES查询DSL之全文查询
               </a>
             
           </div>
@@ -539,10 +658,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/14/javaLoadorder/" rel="prev" title="java 中类初始化，构造方法，静态成员变量，静态块的加载顺序">
-                java 中类初始化，构造方法，静态成员变量，静态块的加载顺序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,8 +749,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -728,6 +852,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker安装redis（哨兵模式）"><span class="nav-text">docker安装redis（哨兵模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载镜像"><span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主从配置"><span class="nav-text">主从配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主节点配置"><span class="nav-text">主节点配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从节点配置"><span class="nav-text">从节点配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动容器"><span class="nav-text">启动容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#验证主从配置"><span class="nav-text">验证主从配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遇到的问题"><span class="nav-text">遇到的问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加哨兵集群配置"><span class="nav-text">添加哨兵集群配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加配置文件"><span class="nav-text">添加配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看哨兵是否启动成功"><span class="nav-text">查看哨兵是否启动成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证哨兵的自动故障转移"><span class="nav-text">验证哨兵的自动故障转移</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

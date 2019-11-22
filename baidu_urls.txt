@@ -1,1 +1,1 @@
-http://blog.lyq3.com/2019/11/11/elasticsearch/DSL-FullTextQueries/
+http://blog.lyq3.com/2019/11/22/docker/install-redis-sentinel/
